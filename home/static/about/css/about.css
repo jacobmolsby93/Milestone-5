@@ -1,0 +1,45 @@
+.page-header {
+    justify-content: center;
+}
+
+.underline {
+    width: 150px;
+    border-bottom: 1px solid black;
+}
+
+#img-container {
+    width: 400px;
+    height: 550px;
+    background-position: auto;
+}
+
+
+
+.color-container {
+    background-color: #F5E9E4;
+    border: 1px solid black;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.about-me-img {
+    width: 400px;
+    height: 550px;
+    box-shadow: rgba(99, 99, 99, 0.2) 2px 2px 8px 2px;
+}
+
+.line-break {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.about-me-text {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.contact-me {
+    background-color: #000;
+    color: #fff;
+    font-size: .75rem;
+}

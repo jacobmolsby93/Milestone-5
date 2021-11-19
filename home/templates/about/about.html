@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="page-header d-flex justify-content-md-center">
+    <span class="underline">
+        <h3 class="text-center mt-3">About Me</h3>
+    </span>
+</div>
+<br>
+<div class="line-break"></div>
+<div class="container">
+    <div class="row d-flex d-flex justify-content-md-center mb-3 color-container">
+        <div class="col-md-6 me-3" id="img-container">
+            <img class="about-me-img" src="{{ MEDIA_URL }}/black-and-white-jeans-man.jpg/" alt="">
+        </div>
+        <div class="col-md-4 text-right mt-3">
+            <h2>My name is Jack</h2>
+            <p class="about-me-text">
+                I am a UK based graphic designer, Welcome
+                to my page, have a look around to see my
+                previous <strong><a href="{% url 'home'%}">Work</a></strong>
+                If you see anything you like feel free to purchase.
+            </p>
+            <br>
+            <p class="about-me-text">
+                I have been in graphic design for the past 5 years,
+                Its my passion, I love the process of creating,
+                and delivering a product that my clients proudly 
+                can present to anyone!
+            </p>
+            <br>
+            <p class="about-me-text text-small">Contact me for further enquires!</p>
+            <button class="contact-me btn btn-lg rounded-0 text-uppercase py-3">
+                <a href="{% url 'contact' %}">Contact Me</a>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -18,6 +18,12 @@ body {
 /* Footer */  
 #main-footer {
   background-color: rgba(238, 239, 180, .3);
+  border-top: 1px solid black;
+}
+
+.footer-links {
+  border-bottom: 1px solid black;
+  border-width: 60%;
 }
 
 #footer-logo {

@@ -1,0 +1,17 @@
+/* Footer Style */
+i.red{
+    color:#BC0213;
+}
+.gal-container{
+    padding-top :75px;
+    padding-bottom:75px;
+}
+
+.page-header {
+    justify-content: center;
+}
+
+.underline {
+    width: 150px;
+    border-bottom: 1px solid black;
+}
