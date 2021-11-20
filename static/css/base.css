@@ -15,15 +15,39 @@ body {
 }
 
 
+
 /* Footer */  
 #main-footer {
   background-color: rgba(238, 239, 180, .3);
   border-top: 1px solid black;
 }
 
+#mc-embedded-subscribe-form {
+  background-color: rgba(238, 239, 180, .3);
+}
+
+#mc-embedded-subscribe {
+  background-color: #000 !important;
+  color: #fff;
+  margin-top: 0 !important;
+  width: 80px !important;
+}
+
+.mc-field-group {
+  margin-bottom: 0;
+}
+
+input#mce-EMAIL.required.email {
+  outline: none;
+  border: none;
+  background-color: inherit;
+  border-bottom: 1px solid black;
+}
+
+
 .footer-links {
   border-bottom: 1px solid black;
-  border-width: 60%;
+  
 }
 
 #footer-logo {
