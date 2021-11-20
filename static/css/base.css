@@ -1,12 +1,28 @@
+html {
+  height: 100%;
+}
+
 body {
-    font-family: Roboto, sans-serif;
-    height: 100%;
+  font-family: Roboto, sans-serif;
+  height: 100%;
 }
+
+/* Bulma */
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
 /* Navbar */
-.navbar {
-  height: 50px;
+.main-nav {
+  height: 70px;
   background-color: #E9D3D3 !important;
+  border-bottom: 1px solid black;
 }
+
 
 #main-logo {
   height: 40px;
@@ -14,9 +30,7 @@ body {
   background-color: #EEEFB4;
 }
 
-
-
-/* Footer */  
+/* Footer */
 #main-footer {
   background-color: rgba(238, 239, 180, .3);
   border-top: 1px solid black;
@@ -47,7 +61,7 @@ input#mce-EMAIL.required.email {
 
 .footer-links {
   border-bottom: 1px solid black;
-  
+
 }
 
 #footer-logo {
@@ -66,4 +80,28 @@ a {
   transition: all 0.3s;
 }
 
+/* -------------------------------------------------------- Media queries */
 
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+
+@media (min-width: 992px) {
+  .fixed-top-desktop-only {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+
+  }
+
+  .header-container {
+    padding-top: 164px;
+  }
+}
