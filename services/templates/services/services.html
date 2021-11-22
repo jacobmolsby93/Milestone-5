@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header d-flex justify-content-md-center mt-5">
+    <span class="underline">
+        <h3 class="text-center mt-3">Services</h3>
+    </span>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {{ services }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
