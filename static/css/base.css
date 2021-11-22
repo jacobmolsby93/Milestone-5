@@ -17,10 +17,19 @@ body {
 }
 
 /* Navbar */
-.main-nav {
-  height: 70px;
-  background-color: #E9D3D3 !important;
+
+.main-navbar {
+  background-color: #E9D3D3;
   border-bottom: 1px solid black;
+}
+
+.navbar {
+  height: 70px;
+  background-color: #E9D3D3;
+}
+
+.navbar li {
+  margin-top: 15px;
 }
 
 
@@ -80,6 +89,17 @@ a {
   transition: all 0.3s;
 }
 
+
+
+
+
+/* Mailchimp */
+#mc_embed_signup {
+  background: #fff;
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif;
+}
+
 /* -------------------------------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
@@ -103,5 +123,11 @@ a {
 
   .header-container {
     padding-top: 164px;
+  }
+}
+
+@media (min-width: 320px) {
+  #footer-logo {
+    width: 300px;
   }
 }

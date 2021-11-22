@@ -18,6 +18,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet"
+                        type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -42,36 +44,38 @@
     <title>Creator Studio inc.{% block extra_title %}{% endblock %}</title>
 </head>
 
-<body class="d-flex flex-column h-100 mt-3 pt-3">
+<body class="d-flex flex-column h-100 mt-3 pt-2">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-        <header class="container-fluid fixed-top main-nav">
+    <header class="container-fluid fixed-top main-navbar">
+        <div class="navbar navbar-expand-lg">
             <div id="main-logo">
-                <div class="ms-2 mt-3">
+                <div class="ms-2">
                     <a class="navbar-brand" href="{% url 'home' %}"><strong>CREATOR STUDIO inc.</strong></a>
                 </div>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <div class="col-12 col-lg-6 my-auto py-lg-0 ms-auto me-5 d-flex justify-content-md-end">
-                    <ul class="navbar-nav mt-2">
+                <div class="col-12 col-lg-8 ms-auto me-5 d-flex justify-content-md-end main-nav">
+                    <ul class="navbar-nav py-0">
                         <li class="nav-item">
-                            <a class="nav-link active text-black mt-2" aria-current="page"
-                                href="{% url 'home' %}">Home</a>
+                            <a class="nav-link active text-black" aria-current="page" href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black mt-2" href="{% url 'about-me' %}">About Me</a>
+                            <a class="nav-link text-black" href="{% url 'about-me' %}">About Me</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-black mt-2" href="{% url 'contact' %}">Contact</a>
+                            <a class="nav-link text-black" href="{% url 'contact' %}">Contact</a>
                         </li>
                         <li class="nav-item dropdown">
                             <div class="">
-                                <a class="nav-link dropdown-toggle text-black mt-2" href="#" id="navbarDropdownMenuLink"
+                                <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Services
                                 </a>
@@ -117,17 +121,20 @@
                                 </div>
                             </a>
                         </li>
+                    </ul>
                 </div>
-                </ul>
             </div>
-        </header>
-    </nav>
+    </header>
+
     <!-- /Navbar -->
 
     <!-- Messages -->
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
 
     {% block content %}
     {% endblock %}
@@ -152,27 +159,16 @@
                         <li><a href="#">Instagram</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div id="footer-logo" class="h-50 mt-2">
+                <div class="col-lg-4 col-md-4">
+                    <div id="footer-logo" class="h-md-50 h-sm-100 mt-2">
                         <div class="pt-3 ms-1">
                             <h3 class="footer-logo-text">CREATOR STUDIO inc.</h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 ms-auto mt-auto">
-                    <!-- Begin Mailchimp Signup Form -->
-                    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet"
-                        type="text/css">
-                    <style type="text/css">
-                        #mc_embed_signup {
-                            background: #fff;
-                            clear: left;
-                            font: 14px Helvetica, Arial, sans-serif;
-                        }
 
-                        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-                    </style>
+                    <!-- Begin Mailchimp Signup Form -->
                     <div id="mc_embed_signup">
                         <form
                             action="https://github.us20.list-manage.com/subscribe/post?u=b011d226de4c76be56223d804&amp;id=8cb5f412e5"

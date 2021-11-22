@@ -59,3 +59,19 @@ label.control-label.requiredField {
     display: none;
 }
 
+
+@media (max-width: 600px) {
+    #contact-form {
+        max-width: 270px;
+    }
+    textarea#id_message_box.textarea {
+        max-width: 200px;
+    }
+    .contact-form {
+        justify-content: center;
+    }
+
+}
+
+@media ()
+

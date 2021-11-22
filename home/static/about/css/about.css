@@ -35,11 +35,28 @@
 
 .about-me-text {
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .contact-me {
     background-color: #000;
     color: #fff;
     font-size: .75rem;
+}
+
+@media (max-width: 600px) {
+    #img-container {
+        height: 320px;
+        width: 210px;
+        justify-content: center;
+    }
+
+    .about-me-img {
+        height: 300px;
+        width: 200px;
+        margin-left: 20px;
+    }
+    p.about-me-text {
+        font-size: small;
+    }
 }

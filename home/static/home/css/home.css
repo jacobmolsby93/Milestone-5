@@ -38,8 +38,22 @@ i.red{
 .shop-now-button {
     background: black;
     color: white;
-    min-width: 260px;
+    width: 100px;
     position: absolute;
-    top: 60%;
-    left: 40%;
+    top: 60.2%;
+    left: 46%;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .shop-now-button {
+        position: relative;
+        padding: 0;
+    }
+}
+
+@media (max-width: 450px) {
+    img {
+        background-size: 150%;
+    }
 }
