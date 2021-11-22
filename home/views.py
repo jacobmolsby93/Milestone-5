@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from .models import Images, Contact
+from .models import Contact
 from .forms import ContactForm
 # Create your views here.
 
@@ -10,13 +10,8 @@ def Home(request):
     """
     A view for the home page, and portfolio.
     """
-    images = Images.objects.all()
-
     template_name = 'home/home.html'
-    context = {
-        "images": images,
-
-    }
+    context = {}
     return render(request, template_name, context)
 
 
