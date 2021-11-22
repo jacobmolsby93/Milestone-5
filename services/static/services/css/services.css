@@ -1,0 +1,22 @@
+.page-header {
+    justify-content: center;
+}
+
+.underline {
+    width: 150px;
+    border-bottom: 1px solid black;
+}
+
+.line-break {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+
+/* media queries */
+@media (min-width: 800px) {
+    .card-img-top {
+    height: 40vh;
+    width: 30vw;
+}
+}
