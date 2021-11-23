@@ -1,5 +1,6 @@
 .page-header {
     justify-content: center;
+    margin-top: 150px;
 }
 
 .underline {
@@ -12,7 +13,6 @@
     height: 550px;
     background-position: auto;
 }
-
 
 
 .color-container {
@@ -43,6 +43,8 @@
     color: #fff;
     font-size: .75rem;
 }
+
+/* Media Queries */
 
 @media (max-width: 600px) {
     #img-container {

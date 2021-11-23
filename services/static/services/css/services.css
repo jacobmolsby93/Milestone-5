@@ -16,14 +16,50 @@
     background-color: rgba(245, 233, 228, .43);
 }
 
-.card {
+.service-card {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
+
+/* Testamonials */
+
+img.img-fluid {
+    height: 70px;
+    width: 70px;
+    border-radius: 30%;
+}
+
+div.col-4.d-flex {
+    width: 258px;
+    height: 231px;
+}
+
+.quote {
+    font-size: 1.5rem;
+}
+
+.card-round {
+    border-radius: 20%;
+    background-color: #FFF4F4;
+}
+
+.card-text {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+
+
 
 /* media queries */
 @media (min-width: 800px) {
     .card-img-top {
     height: 40vh;
     width: 30vw;
+    }
 }
+
+@media (max-width: 600px) {
+    body > div.row.justify-content-center.mb-5 > div:nth-child(4) {
+        margin-top: 45px;
+    }
 }

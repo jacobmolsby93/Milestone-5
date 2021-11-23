@@ -18,8 +18,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet"
-                        type="text/css">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -47,83 +46,83 @@
 <body class="d-flex flex-column h-100 mt-3 pt-2">
 
     <!-- Navbar -->
-    <header class="container-fluid fixed-top main-navbar">
-        <div class="navbar navbar-expand-lg">
-            <div id="main-logo">
-                <div class="ms-2">
-                    <a class="navbar-brand" href="{% url 'home' %}"><strong>CREATOR STUDIO inc.</strong></a>
-                </div>
+    <header class="container-fluid fixed-top">
+        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex main-navbar">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
+                <a href="{% url 'home' %}" id="main-logo" class="nav-link main-logo-link">
+                    <h2 class="logo-font text-black my-0"><strong>Creator Studio inc.</strong></h2>
+                </a>
             </div>
 
-            <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <div class="col-12 col-lg-8 ms-auto me-5 d-flex justify-content-md-end main-nav">
-                    <ul class="navbar-nav py-0">
-                        <li class="nav-item">
-                            <a class="nav-link active text-black" aria-current="page" href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-black" href="{% url 'about-me' %}">About Me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-black" href="{% url 'contact' %}">Contact</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div class="">
-                                <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Shop
-                                </a>
-                                <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="{% url 'services' %}">Services</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'styles' %}">Shop Styles</a></li>
-                                </ul>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="{% url 'styles' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q"
+                            placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right mt-0 pt-0 my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown py-0">
-                            <a class="text-black nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0">My Account</p>
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu border-0" aria-labelledby="user-options">
-                                {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                <li><a href="#" class="dropdown-item">Product Management</a></li>
-                                {% endif %}
-                                <li><a href="#" class="dropdown-item">My Profile</a></li>
-                                <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
-                                {% else %}
-                                <li><a href="{% url 'account_signup' %}" class="dropdown-item">Register</a></li>
-                                <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
-                                {% endif %}
-                            </ul>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                                href="#">
-                                <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                    <p class="my-0">
-                                        {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
-                                        {% else %}
-                                        $0.00
-                                        {% endif %}
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item">Site Management</a>
+                            {% endif %}
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                            href="#">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %}
+                                    ${{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    $0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
+        </div>
+        <div class="row bottom-row">
+            <nav>
+                <div class="dropdown navbar-brand d-md-none">
+                    <button class="navbar-toggler toggler-example" type="button" data-bs-toggle="collapse"
+                        data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+                        aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                                class="fas fa-bars fa-1x"></i></span></button>
+                        {% include 'includes/main-nav.html' %}
+                        {% include 'includes/mobile-top-header.html' %}
+                        
+                </div>
+            </nav>
+        </div>
     </header>
 
     <!-- /Navbar -->

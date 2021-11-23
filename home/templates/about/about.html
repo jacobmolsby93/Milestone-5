@@ -7,17 +7,23 @@
 
 
 {% block content %}
-<div class="page-header d-flex justify-content-md-center mt-5">
-    <span class="underline">
-        <h3 class="text-center mt-3">About Me</h3>
-    </span>
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
 </div>
-<br>
+{% endblock %}
+
+<div class="page-header d-flex justify-content-md-center mt-5 mb-3">
+    <h3 class="text-center mt-3 underline">About Me</h3>
+</div>
 <div class="line-break"></div>
 <div class="container">
     <div class="row d-flex d-flex justify-content-md-center color-container mb-3">
         <div class="col-md-6" id="img-container">
-            <img class="about-me-img" src="{{ MEDIA_URL }}/black-and-white-jeans-man.jpg/" alt="Black and white image of guy in jeans jacket">
+            <img class="about-me-img" src="{{ MEDIA_URL }}/black-and-white-jeans-man.jpg/"
+                alt="Black and white image of guy in jeans jacket">
         </div>
         <div class="col-lg-4 col-md-12 ms-2 mt-md-5">
             <h2>My name is Jack</h2>
@@ -31,7 +37,7 @@
             <p class="about-me-text">
                 I have been in graphic design for the past 5 years,
                 Its my passion, I love the process of creating,
-                and delivering a product that my clients proudly 
+                and delivering a product that my clients proudly
                 can present to anyone!
             </p>
             <br>

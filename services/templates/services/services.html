@@ -6,20 +6,25 @@
 {% endblock %}
 
 {% block content %}
-<div class="page-header d-flex justify-content-md-center mt-5 mb-3">
-    <span class="underline">
-        <h3 class="text-center mt-3">Services</h3>
-    </span>
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
 </div>
+{% endblock %}
 
+<div class="page-header d-flex justify-content-md-center mt-5 mb-3">
+    <h3 class="text-center mt-3 underline">Services</h3>
+</div>
 <div class="line-break"></div>
 
 <div class="container-fluid mb-3">
     <div class="row">
-            {% for service in services %}
-            <div class="col-md-6  d-flex justify-content-center">
+        {% for service in services %}
+        <div class="col-md-6  d-flex justify-content-center">
             <div class="col-sm-12 col-lg-8 mb-2">
-                <div class="card h-100 border-1 rounded-0">
+                <div class="card service-card h-100 border-1 rounded-0">
                     <div class="card-body">
                         {% if service.service_image %}
                         <a href="">
@@ -39,7 +44,9 @@
                         <p>{{ service.description }}</p>
                         <ul>
                             <li>
-                                <strong><p class="mb-0">Pricing: {{ service.price }} $</p></strong>
+                                <strong>
+                                    <p class="mb-0">Pricing: {{ service.price }} $</p>
+                                </strong>
                                 <p><small>{{ service.pricing_description }}</small></p>
                             </li>
                         </ul>
@@ -51,4 +58,43 @@
     </div>
 </div>
 
+<div class="row justify-content-center mb-5">
+    {% for testamonial in testamonials %}
+    <div class="col-4 d-flex">
+        <div class="col-12">
+            <div class="card card-round">
+                <div class="col-12 d-flex">
+                    <div class="col-6 ms-3 mt-3 mb-1 me-0">
+                        <img src="{{ testamonial.testamonial_image.url }}" class="img-fluid" />
+                    </div>
+                    <div class="col-4 mt-3">
+                        <h6 class="card-title me-2 ms-0 mb-0">{{ testamonial.persons_name }}</h6>
+                        <h6 class="card-title">{{ testamonial.persons_work }}</h6>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="card-text ms-2 mb-2 me-2">
+                        <span class="quote">"</span>
+                            <small>{{ testamonial.testamonial_review }}</small>
+                        <span class="quote">"</span>
+                        </p>
+                        {% if testamonial.testamonial_rating %}
+                            <p class="text-center">{{ testamonial.testamonial_rating }} <i class="far fa-thumbs-up"></i></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
 {% endblock %}
+testamonial_image = models.ImageField(null=True, blank=True)
+testamonial_review = models.TextField()
+persons_name = models.CharField(max_length=50)
+persons_work = models.CharField(max_length=50)
+testamonial_rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)

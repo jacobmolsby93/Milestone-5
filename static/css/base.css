@@ -18,12 +18,37 @@ body {
 
 /* Navbar */
 
-.main-navbar {
+body > header > div.row.bottom-row > nav {
+  background-color: #000;
+  height: 30px;
+}
+
+#main-nav a {
+  color: #fff !important;
+  margin-bottom: 10px;
+  transition: .3sec;
+}
+
+#main-nav a:hover {
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+
+
+.bottom-row {
+  margin-bottom: 165px;
+}
+
+.navbar {
   background-color: #E9D3D3;
   border-bottom: 1px solid black;
 }
 
-.navbar {
+.main-navbar {
+  background-color: #E9D3D3;
+}
+
+#topnav {
   height: 70px;
   background-color: #E9D3D3;
 }
@@ -35,7 +60,8 @@ body {
 
 #main-logo {
   height: 40px;
-  width: 180px;
+  width: 290px;
+  padding: 10px;
   background-color: #EEEFB4;
 }
 
@@ -122,7 +148,7 @@ a {
   }
 
   .header-container {
-    padding-top: 164px;
+    padding-top: 30px;
   }
 }
 
