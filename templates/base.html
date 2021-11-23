@@ -81,7 +81,7 @@
                                 </a>
                                 <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="{% url 'services' %}">Services</a></li>
-                                    <li><a class="dropdown-item" href="#">Shop Styles</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'styles' %}">Shop Styles</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -149,7 +149,8 @@
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'about-me' %}">About Me</a></li>
                         <li><a href="{% url 'contact' %}">Contact</a></li>
-                        <li><a href="#">Shop Now</a></li>
+                        <li><a href="{% url 'services' %}">Services</a></li>
+                        <li><a href="{% url 'styles' %}">Shop Styles</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6">

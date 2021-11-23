@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header d-flex justify-content-md-center mt-5 mb-3">
+    <span class="underline">
+        <h3 class="text-center mt-3">Shop Styles</h3>
+    </span>
+</div>
+
+<div class="line-break"></div>
+<div class="container-fluid mb-3">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-container my-5">
+                <hr>
+                {% if style.style_image %}
+                <a href="{{ style.style_image.url }}" target="_blank">
+                    <img class="card-img-top img-thumbnail border-0 mb-0" src="{{ style.style_image.url }}"
+                        alt="{{ style.style_name }}">
+                </a>
+                {% else %}
+                <a href="#">
+                    <img class="card-img-top img-fluid border-0" src="{{ MEDIA_URL }}noimage.png"
+                        alt="{{ style.style_name }}">
+                </a>
+                {% endif %}
+                <hr>
+                <button class="back-button btn btn-md rounded-0 text-uppercase py-1"><a href="{% url 'styles' %}">Back to styles</a></button>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mt-5 pt-5">
+            <h4>{{ style.style_name }}</h4>
+            <hr>
+            <p><strong>{{ style.style_description }}</strong></p>
+            <hr>
+            <p><strong>Price: {{ style.style_price }} $</strong></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -3,6 +3,7 @@ from .models import Services
 
 # Create your views here.
 
+
 def services(request):
     """
     A view to show the services which the site provides.
