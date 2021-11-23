@@ -26,8 +26,6 @@ i.red{
     line-height: 0;
     column-count: 4;
     column-gap: 0px;
-    margin-left: 30px;
-    margin-right: 30px;
     position: relative;
 }
 
@@ -50,11 +48,5 @@ i.red{
     .shop-now-button {
         position: relative;
         padding: 0;
-    }
-}
-
-@media (max-width: 450px) {
-    img {
-        background-size: 150%;
     }
 }

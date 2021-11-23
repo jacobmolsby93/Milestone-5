@@ -18,7 +18,7 @@ body {
 
 /* Navbar */
 
-body > header > div.row.bottom-row > nav {
+body>header>div.row.bottom-row>nav {
   background-color: #000;
   height: 30px;
 }
@@ -117,8 +117,6 @@ a {
 
 
 
-
-
 /* Mailchimp */
 #mc_embed_signup {
   background: #fff;
@@ -155,5 +153,81 @@ a {
 @media (min-width: 320px) {
   #footer-logo {
     width: 300px;
+  }
+}
+
+
+/* Small devices */
+@media (max-width: 550px) {
+  .navbar {
+    background-color: #E9D3D3 !important;
+    height: 100px !important;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  #main-nav {
+    background-color: #000;
+    color: #fff;
+    opacity: .75;
+  }
+
+  .nav-item {
+    margin-left: 10px;
+  }
+
+  .header-container {
+    padding-bottom: 20px;
+  }
+
+  .mobile-header {
+    font-size: .8rem;
+    float: left;
+  }
+
+  body>header>div.row.bottom-row>nav>div.mobile-header>li:nth-child(3)>a {
+    padding-left: 0;
+    margin-left: 0;
+    padding-left;
+  }
+
+  #user-options {
+    padding-left: 0;
+    margin-left: 0;
+    padding-right: 0;
+  }
+
+  #mobile-search {
+    padding-left: 10px;
+    margin-left: 0;
+    padding-right: 0;
+  }
+
+  body>header>div.row.bottom-row>nav>div.mobile-header>li.list-inline-item.show>div {
+    position: absolute;
+    left: 0;
+    top: 30;
+  }
+}
+
+/* Medium Devices */
+@media only screen and (max-width: 992px) and (min-width: 550px) {
+  .navbar {
+    background-color: #E9D3D3 !important;
+    height: 100px !important;
+  }
+
+  .header-container {
+    padding-bottom: 20px;
+  }
+  .ul-container {
+    background-color: #000;
+    color: #fff;
+    opacity: .75;
+    width: 200px;
+    float: left;
+  }
+  .ul-container > li {
+    margin-left: 10px;
   }
 }

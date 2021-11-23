@@ -1,15 +1,32 @@
-<div class="collapse navbar-collapse" id="navbarSupportedContent1">
-   <!-- Links -->
-   <ul class="navbar-nav mr-auto">
-       <li class="nav-item active">
-           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-       </li>
-       <li class="nav-item">
-           <a class="nav-link" href="#">Features</a>
-       </li>
-       <li class="nav-item">
-           <a class="nav-link" href="#">Pricing</a>
-       </li>
-   </ul>
-   <!-- Links -->
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav mx-auto ul-container">
+        <li class="nav-item d-block d-lg-none">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
+                Home
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'about-me' %}">
+                About
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'contact' %}">
+                Contact
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'services' %}">
+                Services
+            </a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'styles' %}">
+                Shop Styles
+            </a>
+        </li>
+    </ul>
 </div>

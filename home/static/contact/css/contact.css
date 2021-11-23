@@ -60,19 +60,20 @@ label.control-label.requiredField {
     display: none;
 }
 
+/* Media queries*/
 
+/* Small devices */
 @media (max-width: 600px) {
-    #contact-form {
-        max-width: 270px;
+    body > div:nth-child(7) {
+        display: flex;
+        justify-content: center;
     }
     textarea#id_message_box.textarea {
         max-width: 200px;
     }
-    .contact-form {
-        justify-content: center;
-    }
-
 }
 
-@media ()
+/* Medium Devices */
+@media only screen and (max-width: 992px) and (min-width: 550px)  {
+
 

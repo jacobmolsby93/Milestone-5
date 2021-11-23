@@ -58,8 +58,15 @@ div.col-4.d-flex {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
     body > div.row.justify-content-center.mb-5 > div:nth-child(4) {
         margin-top: 45px;
     }
 }
+
+@media only screen and (max-width: 992px) and (min-width: 510px) {
+    body > div.row.justify-content-center.mb-5 > div:nth-child(4) {
+        margin-top: 0;
+    }
+}
+
