@@ -10,8 +10,8 @@ def shop_styles(request):
     """
     A view to show the different styles which the owner has created
     """
-    services = Services.objects.all()
     styles = ShopStyles.objects.all()
+    number_of_styles = styles.count()
     query = None
 
     if request.GET:
@@ -27,6 +27,7 @@ def shop_styles(request):
     context = {
         'styles': styles,
         'search_term': query,
+        'number_of_styles': number_of_styles
     }
 
     return render(request, 'styles/styles.html', context)

@@ -71,7 +71,6 @@
                         <h6 class="card-title me-2 ms-0 mb-0">{{ testamonial.persons_name }}</h6>
                         <h6 class="card-title">{{ testamonial.persons_work }}</h6>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -93,8 +92,3 @@
 
 
 {% endblock %}
-testamonial_image = models.ImageField(null=True, blank=True)
-testamonial_review = models.TextField()
-persons_name = models.CharField(max_length=50)
-persons_work = models.CharField(max_length=50)
-testamonial_rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)

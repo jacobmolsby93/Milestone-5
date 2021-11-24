@@ -12,6 +12,10 @@
     margin-bottom: 20px;
 }
 
+.numb {
+    text-decoration: underline;
+}
+
 .card-body {
     background-color: rgba(245, 233, 228, .43);
 }

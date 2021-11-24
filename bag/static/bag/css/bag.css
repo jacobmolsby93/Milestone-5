@@ -1,0 +1,14 @@
+.page-header {
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.underline {
+    width: 200px;
+    border-bottom: 1px solid black;
+}
+
+.line-break {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
