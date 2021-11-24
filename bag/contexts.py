@@ -1,5 +1,4 @@
 
-
 def bag_contents(request):
     """
     Context Proccessor

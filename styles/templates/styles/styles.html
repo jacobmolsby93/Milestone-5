@@ -44,7 +44,7 @@
                         <strong>
                             <p class="mb-0">$ {{ style.style_price }} $</p>
                         </strong>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase me-auto" value="Add to Bag">
+                        <a href="{% url 'style_detail' style.id %}" class="btn btn-black rounded-0 text-small">+</a>
                     </div>
                 </div>
             </div>

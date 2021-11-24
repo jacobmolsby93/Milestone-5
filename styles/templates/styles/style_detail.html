@@ -35,7 +35,8 @@
                 </a>
                 {% endif %}
                 <hr>
-                <button class="back-button btn btn-md rounded-0 text-uppercase py-1"><a href="{% url 'styles' %}">Back to styles</a></button>
+                <button class="back-button btn btn-md rounded-0 text-uppercase py-1"><a href="{% url 'styles' %}">Back
+                        to styles</a></button>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-5 pt-5">
@@ -44,6 +45,32 @@
             <p><strong>{{ style.style_description }}</strong></p>
             <hr>
             <p><strong>Price: {{ style.style_price }} $</strong></p>
+            <form classs="form" action="{% url 'add_to_bag' style.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-12">
+                        <div class="form-group w-50">
+                            <div class="input-group">
+                                <span>
+                                    <small class="text-uppercase">Buy </small>
+                                    <input type="checkbox" value="add_to" data-item_id="{{ style.id }}"
+                                        id="id_qty_{{ style.id }}">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to bag">
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
         </div>
     </div>
 </div>

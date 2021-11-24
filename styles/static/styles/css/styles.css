@@ -35,3 +35,28 @@ img {
     width: 110px;
     font-size: .65rem;
 }
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.input-group {
+    border: 1px solid black;
+    width: 50px;
+}
+
+
