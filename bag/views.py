@@ -25,7 +25,7 @@ def add_to_bag(request, item_id):
     """
     Add item of specified product to the shopping bag
     """
-
+    style = ShopStyles.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -34,6 +34,7 @@ def add_to_bag(request, item_id):
         messages.error(request, 'You have already added this product to the shopping bag!')
     else:
         bag[item_id] = quantity
+        messages.success(request, f"You added {style.style_name} to your bag!")
     
     request.session['bag'] = bag
 
