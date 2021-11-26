@@ -7,6 +7,25 @@ body {
   height: 100%;
 }
 
+.btn-black {
+  background: black;
+  color: white;
+}
+
+.btn-outline-black {
+  background: white;
+  color: black !important;
+  border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+  background: black;
+  color: white !important;
+}
+
+
 /* Bulma */
 .icon {
   align-items: center;
@@ -63,6 +82,22 @@ body>header>div.row.bottom-row>nav {
   width: 290px;
   padding: 10px;
   background-color: #EEEFB4;
+}
+
+/* Messages */
+.message-container {
+  position: fixed;
+  top: 150px;
+  right: 300px;
+  z-index: 99999999;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
 }
 
 /* Footer */

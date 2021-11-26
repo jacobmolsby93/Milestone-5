@@ -24,10 +24,6 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-img {
-    height: 200px;
-    width: 300px;
-}
 
 .back-button {
     background: black;
@@ -52,11 +48,6 @@ img {
 .btn-outline-black:focus {
     background: black;
     color: white !important;
-}
-
-.input-group {
-    border: 1px solid black;
-    width: 50px;
 }
 
 

@@ -1,0 +1,47 @@
+<div class="toast custom-toast rounded-0 border-top-0" data-autohide="false">
+    <div class="arrow-up arrow-success"></div>
+    <div class="w-100 toast-capper bg-success"></div>
+    <div class="toast-header bg-white text-dark">
+        <strong class="me-auto">Success!</strong>
+        <button type="button" class="btn d-flex-end close text-dark" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-buddy bg-white">
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-1">
+            </div>
+        </div>
+        {% if grand_total and not on_profile_page %}
+        <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
+        <div class="bag-notification-wrapper">
+            {% for item in bag_items %}
+            <div class="row">
+                <div class="col-3 my-1">
+                    {% if item.style.style_image %}
+                    <img class="w-100" src="{{ item.style.style_image.url }}" alt="{{ item.style.style_name }}">
+                    {% else %}
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.style.style_name }}">
+                    {% endif %}
+                </div>
+                <div class="col-9">
+                    <p class="my-0"><strong>{{ item.style.style_name }}</strong></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'view_bag'%}" class="btn btn-black btn-block rounded-0 w-100">
+                    <span class="text-uppercase">Go To Secure Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
