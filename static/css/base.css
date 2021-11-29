@@ -12,6 +12,11 @@ body {
   color: white;
 }
 
+.page-header {
+  justify-content: center;
+  margin-top: 150px;
+}
+
 .btn-outline-black {
   background: white;
   color: black !important;

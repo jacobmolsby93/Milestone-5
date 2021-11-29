@@ -71,3 +71,8 @@ select option[value=""] {
     margin-bottom: 5px;
     border-radius: 0;
 }
+
+.order-confirmation-wrapper {
+  border: 1px solid black !important;
+  background-color: #F5E9E4;
+}
