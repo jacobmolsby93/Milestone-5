@@ -1,13 +1,17 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse
+)
 from django.contrib import messages
 from django.conf import settings
 
-from .forms import OrderForm
-from .models import Order, OrderLineItem
 from styles.models import ShopStyles
+from .models import Order, OrderLineItem
+from .forms import OrderForm
 from bag.contexts import bag_contents
 
 import stripe
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def checkout(request):
@@ -22,44 +26,43 @@ def checkout(request):
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
-            'postcode': request.POST['postcode'],
-            'town_or_city': request.POST['town_or_city'],
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
-            'county': request.POST['county'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
+            order.save()
             for item_id, item_data in bag.items():
                 try:
-                    product = ShopStyles.objects.get(id=item_id)
+                    style = ShopStyles.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            product=product,
-                            quantity=item_data,
+                            style=style,
+                            quantity=item_data
                         )
                         order_line_item.save()
-                except ShopStyles.DoesNotExist:
+                except ShopStyle.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
-                    )
+                        "One style was not found in our"
+                        "Database, please email us for help!"
+                    ))
                     order.delete()
                     return redirect(reverse('view_bag'))
-
+            
+            # Save the info to the user's profile if all is well.
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
-        else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            return redirect(reverse('checkout_succes', args=[order.order_number]))
+        
+        else: 
+            messages.error(request, ('There was an error with your form. '
+                                     'Please double check your information.'))
     else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
-            return redirect(reverse('styles'))
-
+            return redirect(reverse('products'))
+        order_form = OrderForm()
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
@@ -69,11 +72,9 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderForm()
-
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
+        if not stripe_public_key:
+            messages.warning(request, 'Stripe public key is missing. \
+                Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
@@ -91,6 +92,21 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        order.user_profile = profile
+        order.save()
+
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_country': order.country,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
+
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
