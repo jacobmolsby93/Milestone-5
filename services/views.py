@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.mail import send_mail, BadHeaderError
+from django.contrib import messages
 from django.http import HttpResponse
 from .models import Services, ServiceRequestModel, Testamonials
+from profiles.models import UserProfile
 from .forms import RequestForm
 
 # Create your views here.
@@ -28,9 +30,11 @@ def service_request(request, service_id):
     """
     request_form = RequestForm()
     service = get_object_or_404(Services, id=service_id)
+    profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
-        request_form = RequestForm(request.POST)
+        request_form = RequestForm(request.POST, instance=profile)
         if request_form.is_valid():
+            request_form.save()
             subject = "Design Idea"
             request_form = {
                 'full_name': request_form.cleaned_data['full_name'],
@@ -39,14 +43,14 @@ def service_request(request, service_id):
                 'ideas': request_form.cleaned_data['ideas']
             }
             message = "\n".join(request_form.values())
-            request_form = RequestForm(request_form)
-            
-
+            request_form = RequestForm(instance=profile)
             try:
-                send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
+                send_mail(subject, message, request.POST.get('email'), ['jacobmolsby@hotmail.se'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect("message_succes")
+            messages.success(request, 'We have received your message and will get back to you as soon as possible'
+                                      ' with an order confirmation!')
+            return redirect(reverse('home'))
 
     context = {
         'service': service,
@@ -54,10 +58,3 @@ def service_request(request, service_id):
     }
 
     return render(request, 'services/service_request.html', context)
-    
-
-def message_sent(request):
-
-    template = 'services/message_sent_page.html'
-    context = {}
-    return render(request, template, context)
