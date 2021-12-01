@@ -22,14 +22,13 @@
 
 /* contact form */
 
-#service-form {
-    border: 1px solid black;
+#contact-form {
+    border: 1px solid black !important;
     background-color: #F5E9E4 !important;
 }
 
 textarea#id_message_box.textarea {
     resize: none;
-    background-color: #F5E9E4;
 }
 
 .submit {
@@ -40,18 +39,10 @@ textarea#id_message_box.textarea {
 
 /* Media queries*/
 
-Small devices
+/* Small devices */
 @media (max-width: 600px) {
-    div.container {
-        display: flex;
-        justify-content: center;
-    }
     textarea#id_message_box.textarea {
         max-width: 200px;
-    }
-
-    form#contact-form {
-        width: 320px !important;
     }
 }
 

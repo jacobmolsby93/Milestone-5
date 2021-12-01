@@ -67,25 +67,13 @@ textarea#id_message_box.textarea {
 
 /* Media queries*/
 
-Small devices
+/* Small devices */
 @media (max-width: 600px) {
-    div.container {
-        display: flex;
-        justify-content: center;
-    }
     textarea#id_message_box.textarea {
         max-width: 200px;
     }
 
-    form#contact-form {
-        width: 320px !important;
-    }
 }
-
-
-
-
-
 
 /* media queries */
 @media (min-width: 800px) {

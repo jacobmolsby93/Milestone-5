@@ -33,18 +33,15 @@
                         </a>
                         {% else %}
                         <a href="{% url 'style_detail' style.id %}">
-                            <img class="card-img-top img-fluid border-0" src="{{ MEDIA_URL }}noimage.png"
+                            <img class="card-img-top img-thumbnail border-0" src="{{ MEDIA_URL }}noimage.png"
                                 alt="{{ style.style_name }}">
                         </a>
                         {% endif %}
-                    </div>
-                    <div class="card-body pt-0">
                         <h5 class="mt-0">{{ style.style_name }}</h5>
                         <hr>
                         <strong>
                             <p class="mb-0">$ {{ style.style_price }} $</p>
                         </strong>
-                        <a href="{% url 'style_detail' style.id %}" class="btn btn-black rounded-0 text-small">+</a>
                     </div>
                 </div>
             </div>

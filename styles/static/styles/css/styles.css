@@ -32,22 +32,22 @@
     font-size: .65rem;
 }
 
-.btn-black {
-    background: black;
-    color: white;
+.img-thumbnail:hover {
+    opacity: .7;
 }
 
-.btn-outline-black {
-    background: white;
-    color: black !important;
-    border: 1px solid black;
+.card {
+    transition: width 1s, height 1s, transform 3s;
 }
 
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
+.card:hover {
+    transform: scale(1.02)
+
+}
+
+.img-thumbnail:hover {
+    zoom: 1.1;
+    zoom: .7;
 }
 
 

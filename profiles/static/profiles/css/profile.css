@@ -1,22 +1,14 @@
-.order-history {
-    max-height: 416px; /* height of profile form + submit button */
-    overflow-y: auto;
+.page-header {
+    justify-content: center;
+    margin-top: 150px;
 }
 
-#profile-update-form .form-control {
-    color: #000;
+.underline {
+    width: 200px;
+    border-bottom: 1px solid black;
 }
 
-#profile-update-form input[name='q']::placeholder {
-    color: #aab7c4;
-}
-
-#id_default_country,
-#id_default_country option:not(:first-child) {
-    color: #000;
-}
-
-#id_default_country,
-#id_default_country option:first-child {
-    color: #aab7c4;    
+.line-break {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
 }
