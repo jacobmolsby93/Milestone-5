@@ -21,12 +21,24 @@
 <br>
 <div class="line-break"></div>
 <div class="container">
-
+<div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6 col-left me-2">
+        <p class="text-muted">Profile Phone Number and Country</p>
+        <form action="{% url 'profile' %}" id="profile-update-form">
+            {% csrf_token%}
+            {{ form | crispy }}
+            <button class="btn btn-black rounded-0 text-uppercase mt-2 float-end" type="submit">Update</button>
+        </form>
+    </div>
+    <div class="col-12 col-lg-6 col-right">
+        <p class="text-muted">Order History</p>
+    </div>
+</div>
 </div>
 
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}
