@@ -1,6 +1,7 @@
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse
 )
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
@@ -10,8 +11,23 @@ from .forms import OrderForm
 from bag.contexts import bag_contents
 
 import stripe
+import json
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -27,7 +43,6 @@ def checkout(request):
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
         }
-
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
@@ -38,11 +53,11 @@ def checkout(request):
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            style=style,
+                            product=style,
                             quantity=item_data
                         )
                         order_line_item.save()
-                except ShopStyle.DoesNotExist:
+                except ShopStyles.DoesNotExist:
                     messages.error(request, (
                         "One style was not found in our"
                         "Database, please email us for help!"
@@ -52,7 +67,7 @@ def checkout(request):
             
             # Save the info to the user's profile if all is well.
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_succes', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         
         else: 
             messages.error(request, ('There was an error with your form. '
@@ -61,7 +76,7 @@ def checkout(request):
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('styles'))
         order_form = OrderForm()
         current_bag = bag_contents(request)
         total = current_bag['grand_total']

@@ -1,4 +1,5 @@
 from django.db import models
+from profiles.models import UserProfile
 
 # Create your models here.
 
@@ -19,6 +20,22 @@ class Services(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ServiceRequestModel(models.Model):
+    class Meta:
+        verbose_name = 'Service Request'
+        verbose_name_plural = 'Service Requests'
+
+    service = models.ForeignKey(Services, on_delete=models.CASCADE, null=False, editable=False)
+    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='services')
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    ideas = models.TextField(null=False, blank=False, default='')
+
+    def __str__(self):
+        return self.service
     
 
 class Testamonials(models.Model):

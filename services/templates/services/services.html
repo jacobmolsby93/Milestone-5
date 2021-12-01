@@ -38,18 +38,27 @@
                         </a>
                         {% endif %}
                     </div>
-                    <div class="card-body pt-0">
-                        <h4 class="mt-0">{{ service.name }}</h4>
+                    <div class="row card-body pt-0">
+                        <h4 class="mt-0 text-center">{{ service.name }}</h4>
                         <hr>
-                        <p>{{ service.description }}</p>
-                        <ul>
-                            <li>
-                                <strong>
-                                    <p class="mb-0">Pricing: {{ service.price }} $</p>
-                                </strong>
-                                <p><small>{{ service.pricing_description }}</small></p>
-                            </li>
-                        </ul>
+                        <div class="col-6">
+                            <p>{{ service.description }}</p>
+                            <ul>
+                                <li>
+                                    <strong>
+                                        <p class="mb-0">Pricing: {{ service.price }} $</p>
+                                    </strong>
+                                    <p><small>{{ service.pricing_description }}</small></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                            <a href="{% url 'service_request' service.id %}">
+                                <button class="btn btn-black rounded-0 p-2">
+                                    Contact
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,12 +84,12 @@
                 <div class="row">
                     <div class="col-12">
                         <p class="card-text ms-2 mb-2 me-2">
-                        <span class="quote">"</span>
+                            <span class="quote">"</span>
                             <small>{{ testamonial.testamonial_review }}</small>
-                        <span class="quote">"</span>
+                            <span class="quote">"</span>
                         </p>
                         {% if testamonial.testamonial_rating %}
-                            <p class="text-center">{{ testamonial.testamonial_rating }} <i class="far fa-thumbs-up"></i></p>
+                        <p class="text-center">{{ testamonial.testamonial_rating }} <i class="far fa-thumbs-up"></i></p>
                         {% endif %}
                     </div>
                 </div>
