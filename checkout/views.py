@@ -1,19 +1,22 @@
 from django.shortcuts import (
-    render, redirect, reverse, get_object_or_404, HttpResponse
-)
+        render, redirect, reverse, get_object_or_404, HttpResponse,
+    )
+from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from profiles.models import UserProfile
-from profiles.forms import UserProfileForm
-from styles.models import ShopStyles
-from .models import Order, OrderLineItem
 from .forms import OrderForm
+from .models import Order, OrderLineItem
+from styles.models import ShopStyles
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from bag.contexts import bag_contents
 
 import stripe
 import json
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @require_POST
 def cache_checkout_data(request):
@@ -31,7 +34,6 @@ def cache_checkout_data(request):
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
-
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -47,39 +49,40 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
             order.save()
             for item_id, item_data in bag.items():
                 try:
-                    style = ShopStyles.objects.get(id=item_id)
+                    product = ShopStyles.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            product=style,
-                            quantity=item_data
+                            product=product,
+                            quantity=item_data,
                         )
                         order_line_item.save()
                 except ShopStyles.DoesNotExist:
                     messages.error(request, (
-                        "One style was not found in our"
-                        "Database, please email us for help!"
-                    ))
+                        "One of the products in your bag wasn't found in our database. "
+                        "Please call us for assistance!")
+                    )
                     order.delete()
                     return redirect(reverse('view_bag'))
-            
-            # Save the info to the user's profile if all is well.
+
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
-        
-        else: 
-            messages.error(request, ('There was an error with your form. '
-                                     'Please double check your information.'))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
             return redirect(reverse('styles'))
-        order_form = OrderForm()
+
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
@@ -89,9 +92,23 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
+        if request.user.is_authenticated:
+            try:
+                profile=UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else: 
+            order_form = OrderForm()
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
@@ -109,20 +126,6 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-
-    if request.user.is_authenticated:
-        profile = UserProfile.objects.get(user=request.user)
-        order.user_profile = profile
-        order.save()
-
-        if save_info:
-            profile_data = {
-                'default_phone_number': order.phone_number,
-                'default_country': order.country,
-            }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
-            if user_profile_form.is_valid():
-                user_profile_form.save()
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \

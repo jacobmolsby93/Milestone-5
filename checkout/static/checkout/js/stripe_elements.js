@@ -75,7 +75,14 @@ form.addEventListener('submit', function(ev) {
                         country: $.trim(form.country.value),
                     }
                 }
-            }
+            },
+            shipping: {
+                name: $.trim(form.full_name.value),
+                phone: $.trim(form.phone_number.value),
+                address: {
+                    country: $.trim(form.country.value),
+                }
+            },
         }).then(function(result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');

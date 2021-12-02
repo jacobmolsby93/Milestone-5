@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponse
 from .models import Services, ServiceRequestModel, Testamonials
@@ -45,7 +46,7 @@ def service_request(request, service_id):
             message = "\n".join(request_form.values())
             request_form = RequestForm(instance=profile)
             try:
-                send_mail(subject, message, request.POST.get('email'), ['jacobmolsby@hotmail.se'])
+                send_mail(subject, message, request.POST.get('email'), [settings.DEFAULT_FROM_EMAIL])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.success(request, 'We have received your message and will get back to you as soon as possible'
