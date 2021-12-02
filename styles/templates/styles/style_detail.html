@@ -19,9 +19,9 @@
 
 <div class="line-break"></div>
 <div class="container-fluid mb-3">
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-lg-4 col-md-6 me-3 col-a col-pink">
+            <div class="image-container my-4">
                 <hr>
                 {% if style.style_image %}
                 <a href="{{ style.style_image.url }}" target="_blank">
@@ -30,14 +30,14 @@
                 </a>
                 {% else %}
                 <a href="#">
-                    <img class="card-img-top img-fluid border-0" src="{{ MEDIA_URL }}noimage.png"
+                    <img class="card-img-top img-thumbnail border-0" src="{{ MEDIA_URL }}noimage.png"
                         alt="{{ style.style_name }}">
                 </a>
                 {% endif %}
                 <hr>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-5 pt-5">
+        <div class="col-12 col-lg-4 col-md-6 pt-3 bottom col-a pb-5 col-pink">
             <h4>{{ style.style_name }}</h4>
             <hr>
             <p><strong>{{ style.style_description }}</strong></p>
@@ -49,18 +49,19 @@
                     <div class="col-12">
                         <div class="form-group w-50">
                             <div class="input-group">
-                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="1" data-item_id="{{ style.id }}" id="id_qty_{{ style.id }}">
+                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
+                                    max="1" data-item_id="{{ style.id }}" id="id_qty_{{ style.id }}">
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
-                        <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5">
+                        <a id="keep" href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5">
                             <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
+                                <i class="fas fa-chevron-left keep"></i>
                             </span>
-                            <span class="text-uppercase">Keep Shopping</span>
+                            <span  class="text-uppercase keep">Keep Shopping</span>
                         </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to bag">
+                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to bag">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>

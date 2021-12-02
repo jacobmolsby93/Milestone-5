@@ -31,7 +31,6 @@
             </div>
             {% endfor %}
         </div>
-        {% if not checkout_success %}
         <div class="row">
             <div class="col">
                 <a href="{% url 'checkout' %}" class="btn btn-black btn-block rounded-0 w-100">
@@ -42,7 +41,6 @@
                 </a>
             </div>
         </div>
-        {% endif %}
         {% endif %}
     </div>
 </div>
