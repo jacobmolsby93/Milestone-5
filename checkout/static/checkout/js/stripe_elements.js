@@ -81,6 +81,7 @@ form.addEventListener('submit', function(ev) {
                 phone: $.trim(form.phone_number.value),
                 address: {
                     country: $.trim(form.country.value),
+                    postal_code: $.trim(form.postcode.value),
                 }
             },
         }).then(function(result) {

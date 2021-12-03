@@ -1,7 +1,6 @@
 from django.shortcuts import (
         render, redirect, reverse, get_object_or_404, HttpResponse,
     )
-from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -15,8 +14,6 @@ from bag.contexts import bag_contents
 
 import stripe
 import json
-
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @require_POST
 def cache_checkout_data(request):
@@ -45,6 +42,7 @@ def checkout(request):
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
+            'postcode': request.POST['postcode'],
             'country': request.POST['country'],
         }
         order_form = OrderForm(form_data)
@@ -99,6 +97,7 @@ def checkout(request):
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
+                    'postcode': profile.default_postcode,
                     'country': profile.default_country,
                 })
             except UserProfile.DoesNotExist:
