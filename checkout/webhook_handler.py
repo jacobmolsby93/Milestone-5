@@ -56,7 +56,7 @@ class StripeWH_Handler:
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-
+        
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
@@ -72,7 +72,6 @@ class StripeWH_Handler:
                 profile.default_country__iexact=shipping_details.address.country,
                 profile.default_postcode__iexact=shipping_details.address.postal_code,
                 profile.save()
-
 
         order_exists = False
         attempt = 1
@@ -113,11 +112,14 @@ class StripeWH_Handler:
                 )
                 for item_id, item_data in json.loads(bag).items():
                     product = ShopStyles.objects.get(id=item_id)
+                    url = product.url_field
+                    print(url)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
+                            url_field=url,
                         )
                         order_line_item.save()
             except Exception as e:

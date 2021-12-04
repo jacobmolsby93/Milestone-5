@@ -27,6 +27,7 @@ class Order(models.Model):
                                       null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    
 
     def _generate_order_number(self):
         """
@@ -63,7 +64,8 @@ class OrderLineItem(models.Model):
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, editable=False)
-
+    url_field = models.URLField(null=False, blank=False, default='')
+    
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total

@@ -10,6 +10,7 @@ class StylesAdmin(admin.ModelAdmin):
         'style_price',
         'sku',
         'style_description',
+        'url_field'
     )
 
 admin.site.register(ShopStyles, StylesAdmin)

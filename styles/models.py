@@ -15,6 +15,7 @@ class ShopStyles(models.Model):
     style_name = models.CharField(max_length=254)
     style_price = models.DecimalField(max_digits=6, decimal_places=2)
     style_description = models.TextField()
+    url_field = models.URLField(null=True, blank=False, default='')
 
     def __str__(self):
         return self.style_name

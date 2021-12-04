@@ -24,15 +24,11 @@
             <div class="image-container my-4">
                 <hr>
                 {% if style.style_image %}
-                <a href="{{ style.style_image.url }}" target="_blank">
                     <img class="card-img-top img-thumbnail border-0 mb-0" src="{{ style.style_image.url }}"
                         alt="{{ style.style_name }}">
-                </a>
                 {% else %}
-                <a href="#">
                     <img class="card-img-top img-thumbnail border-0" src="{{ MEDIA_URL }}noimage.png"
                         alt="{{ style.style_name }}">
-                </a>
                 {% endif %}
                 <hr>
             </div>

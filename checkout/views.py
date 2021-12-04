@@ -55,11 +55,14 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     product = ShopStyles.objects.get(id=item_id)
+                    url = product.url_field
+                    request.session['url'] = url
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
+                            url_field=url,
                         )
                         order_line_item.save()
                 except ShopStyles.DoesNotExist:
@@ -69,7 +72,7 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-
+            
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
@@ -123,6 +126,8 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
+
+    url = request.session.get('url')
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -132,10 +137,11 @@ def checkout_success(request, order_number):
 
     if 'bag' in request.session:
         del request.session['bag']
-
+        
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'url': url,
     }
 
     return render(request, template, context)

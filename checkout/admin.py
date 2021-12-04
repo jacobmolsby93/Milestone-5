@@ -11,10 +11,10 @@ class OrderAdmin(admin.ModelAdmin):
 
     readonly_fields = ('order_number', 'date',
                        'grand_total', 'original_bag',
-                       'stripe_pid')
+                       'stripe_pid',)
     
     fields = ('order_number', 'user_profile', 'date', 'full_name', 'email',
-              'phone_number', 'birthday', 'original_bag', 'stripe_pid',)
+              'phone_number', 'original_bag', 'stripe_pid',)
 
     list_display = ('order_number', 'date',
                     'full_name',
