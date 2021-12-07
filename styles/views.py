@@ -68,3 +68,29 @@ def add_style(request):
     }
 
     return render(request, template, context)
+
+
+def edit_style(request, style_id):
+    """
+    A view to Add styles to the page
+    """
+    style = get_object_or_404(ShopStyles, id=style_id)
+    if request.method == 'POST':
+        form = StyleForm(request.POST, request.FILES, instance=style)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated style!')
+            return redirect(reverse('style_detail', args=[style.id]))
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+    else:
+        form = StyleForm(instance=style)
+        messages.info(request, f'You are editing {style.style_name}!')
+
+
+    template = 'styles/edit_style.html'
+    context = {
+        'form': form,
+        'style': style,
+    }
+    return render(request, template, context)
