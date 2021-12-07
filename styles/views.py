@@ -6,7 +6,6 @@ from .models import ShopStyles
 from services.models import Services
 from .forms import StyleForm
 
-# Create your views here.
 
 def shop_styles(request):
     """
@@ -47,11 +46,14 @@ def style_detail(request, style_id):
 
     return render(request, 'styles/style_detail.html', context)
 
-
+@login_required
 def add_style(request):
     """
     A view to Add styles to the page
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only storeowners can do that!')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = StyleForm(request.POST, request.FILES)
@@ -71,10 +73,15 @@ def add_style(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_style(request, style_id):
     """
     A view to edit styles to the page
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only storeowners can do that!')
+        return redirect(reverse('home'))
+
     style = get_object_or_404(ShopStyles, id=style_id)
     if request.method == 'POST':
         form = StyleForm(request.POST, request.FILES, instance=style)

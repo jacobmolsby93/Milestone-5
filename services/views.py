@@ -2,10 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import Services, ServiceRequestModel, Testamonials
 from profiles.models import UserProfile
-from .forms import RequestForm
+from .forms import RequestForm, ServiceForm
 
 # Create your views here.
 
@@ -59,3 +60,75 @@ def service_request(request, service_id):
     }
 
     return render(request, 'services/service_request.html', context)
+
+
+@login_required
+def add_service(request):
+    """
+    A view to Add a service to the page
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only storeowners can do that!')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES)
+        if form.is_valid():
+            service = form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect('services')
+        else:
+            messages.error(request, 'Failed to add product, Please ensure the form is valid.')
+    else:
+        form = ServiceForm()
+    template = "services/add_service.html"
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_service(request, service_id):
+    """
+    A view to edit service to the page
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only storeowners can do that!')
+        return redirect(reverse('home'))
+
+    service = get_object_or_404(Services, id=service_id)
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES, instance=service)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated service!')
+            return redirect('services')
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+    else:
+        form = ServiceForm(instance=service)
+        messages.info(request, f'You are editing {service.name}!')
+
+    template = 'services/edit_service.html'
+    context = {
+        'form': form,
+        'service': service,
+    }
+    return render(request, template, context)
+
+
+@login_required
+def delete_service(request, service_id):
+    """
+    Delete a service
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
+    service = get_object_or_404(Services, pk=service_id)
+    service.delete()
+    messages.success(request, 'service deleted!')
+    return redirect(reverse('services'))

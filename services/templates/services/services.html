@@ -17,6 +17,7 @@
 <div class="page-header d-flex justify-content-md-center mt-5 mb-3">
     <h3 class="text-center mt-3 underline">Services</h3>
 </div>
+
 <div class="line-break"></div>
 
 <div class="container-fluid mb-3">
@@ -59,6 +60,12 @@
                                 </button>
                             </a>
                         </div>
+                        {% if request.user.is_superuser %}
+                        <div class="row d-inline">
+                            <a href="{% url 'delete_service' service.id %}" class="text-small text-danger">Delete</a>
+                            <a href="{% url 'edit_service' service.id %}" class="text-small text-success">Edit</a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -96,6 +103,7 @@
             </div>
         </div>
     </div>
+
     {% endfor %}
 </div>
 
