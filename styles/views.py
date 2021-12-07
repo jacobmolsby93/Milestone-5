@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import ShopStyles
 from services.models import Services
+from .forms import StyleForm
 
 # Create your views here.
 
@@ -44,3 +45,26 @@ def style_detail(request, style_id):
     }
 
     return render(request, 'styles/style_detail.html', context)
+
+
+def add_style(request):
+    """
+    A view to Add styles to the page
+    """
+
+    if request.method == 'POST':
+        form = StyleForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_style'))
+        else:
+            messages.error(request, 'Failed to add product, Please ensure the form is valid.')
+    else:
+        form = StyleForm()
+    template = "styles/add_style.html"
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

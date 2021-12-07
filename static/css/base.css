@@ -30,6 +30,13 @@ body {
   color: white !important;
 }
 
+.submit {
+  background-color: #000;
+  color: #fff;
+  font-size: .75rem;
+}
+
+
 
 /* Bulma */
 .icon {

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+<div class="page-header d-flex justify-content-md-center mt-5">
+    <h3 class="text-center mt-3 underline">Site Management</h3>
+</div>
+<br>
+<div class="line-break"></div>
+<div class="container">
+    <div class="contact-form row d-flex justify-content-md-center mb-3">
+        <div class="col-12 col-md-8 d-flex justify-content-md-center">
+            <form action="{% url 'add_style' %}" method="POST" class="form mb-2 col-pink" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="rounded px-3 mb-2 me-3 ms-3 py-3">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Add Style</legend>
+                        {{ form | crispy }}
+                </fieldset>
+                <div class="mb-2 me-2 d-flex justify-content-end">
+                    <button type="submit" class=" submit btn btn-md rounded-0 text-uppercase py-2">Add Style</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
