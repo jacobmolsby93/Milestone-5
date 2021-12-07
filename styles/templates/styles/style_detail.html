@@ -20,7 +20,7 @@
 <div class="line-break"></div>
 <div class="container-fluid mb-3">
     <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-12 col-lg-4 col-md-6 me-3 col-a col-pink">
+        <div class="col-12 col-lg-4 col-md-6 col-a col-pink">
             <div class="image-container my-4">
                 <hr>
                 {% if style.style_image %}
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-lg-4 col-md-6 pt-3 bottom col-a pb-5 col-pink">
+        <div class="col-12 col-lg-4 col-md-6 pt-3 bottom ms-md-3 col-a pb-5 col-pink">
             {% if request.user.is_superuser %}
             <div class="row d-inline float-end">
                 <a href="{% url 'delete_style' style.id %}" class="text-small text-danger">Delete</a>
@@ -59,13 +59,13 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <a id="keep" href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5">
+                        <a id="keep" href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5 btn-md">
                             <span class="icon">
                                 <i class="fas fa-chevron-left keep"></i>
                             </span>
                             <span class="text-uppercase keep">Keep Shopping</span>
                         </a>
-                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5"
+                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 btn-md"
                             value="Add to bag">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">

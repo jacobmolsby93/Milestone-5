@@ -59,13 +59,22 @@
     zoom: .7;
 }
 
-@media (max-width: 778px) {
+
+@media (max-width: 992px) {
     .col-a {
         max-width: 500px;
         height: auto;
     }
     .bottom {
         margin-top: 20px;
+    }
+
+    #add-to {
+        padding: .375rem .375rem;
+    }
+
+    #keep {
+        padding: .375rem .375rem;
     }
 }
 
