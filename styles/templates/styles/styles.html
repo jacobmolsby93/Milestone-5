@@ -42,6 +42,12 @@
                         <strong>
                             <p class="mb-0">$ {{ style.style_price }} $</p>
                         </strong>
+                        {% if request.user.is_superuser %}
+                            <div class="row d-inline float-end">
+                                <a href="{% url 'delete_style' style.id %}" class="text-small text-danger">Delete</a>
+                                <a href="{% url 'edit_style' style.id %}" class="text-small text-success">Edit</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

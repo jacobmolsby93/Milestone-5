@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from .models import ShopStyles
 from services.models import Services
 from .forms import StyleForm
@@ -55,9 +56,9 @@ def add_style(request):
     if request.method == 'POST':
         form = StyleForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            style = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_style'))
+            return redirect(reverse('style_detail', args=[style.id]))
         else:
             messages.error(request, 'Failed to add product, Please ensure the form is valid.')
     else:
@@ -72,7 +73,7 @@ def add_style(request):
 
 def edit_style(request, style_id):
     """
-    A view to Add styles to the page
+    A view to edit styles to the page
     """
     style = get_object_or_404(ShopStyles, id=style_id)
     if request.method == 'POST':
@@ -94,3 +95,18 @@ def edit_style(request, style_id):
         'style': style,
     }
     return render(request, template, context)
+
+
+@login_required
+def delete_style(request, style_id):
+    """
+    Delete a product in the store
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
+    style = get_object_or_404(ShopStyles, pk=style_id)
+    style.delete()
+    messages.success(request, 'style deleted!')
+    return redirect(reverse('styles'))

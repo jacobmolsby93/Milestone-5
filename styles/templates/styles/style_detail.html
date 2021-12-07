@@ -24,17 +24,25 @@
             <div class="image-container my-4">
                 <hr>
                 {% if style.style_image %}
-                    <img class="card-img-top img-thumbnail border-0 mb-0" src="{{ style.style_image.url }}"
-                        alt="{{ style.style_name }}">
+                <img class="card-img-top img-thumbnail border-0 mb-0" src="{{ style.style_image.url }}"
+                    alt="{{ style.style_name }}">
                 {% else %}
-                    <img class="card-img-top img-thumbnail border-0" src="{{ MEDIA_URL }}noimage.png"
-                        alt="{{ style.style_name }}">
+                <img class="card-img-top img-thumbnail border-0" src="{{ MEDIA_URL }}noimage.png"
+                    alt="{{ style.style_name }}">
                 {% endif %}
                 <hr>
             </div>
         </div>
+
         <div class="col-12 col-lg-4 col-md-6 pt-3 bottom col-a pb-5 col-pink">
+            {% if request.user.is_superuser %}
+            <div class="row d-inline float-end">
+                <a href="{% url 'delete_style' style.id %}" class="text-small text-danger">Delete</a>
+                <a href="{% url 'edit_style' style.id %}" class="text-small text-success">Edit</a>
+            </div>
+            {% endif %}
             <h4>{{ style.style_name }}</h4>
+
             <hr>
             <p><strong>{{ style.style_description }}</strong></p>
             <hr>
@@ -55,9 +63,10 @@
                             <span class="icon">
                                 <i class="fas fa-chevron-left keep"></i>
                             </span>
-                            <span  class="text-uppercase keep">Keep Shopping</span>
+                            <span class="text-uppercase keep">Keep Shopping</span>
                         </a>
-                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to bag">
+                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5"
+                            value="Add to bag">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
