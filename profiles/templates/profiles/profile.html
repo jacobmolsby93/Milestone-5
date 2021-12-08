@@ -27,7 +27,7 @@
         <form action="{% url 'profile' %}" id="profile-update-form">
             {% csrf_token%}
             {{ form | crispy }}
-            <button class="btn btn-black rounded-0 text-uppercase mt-2 float-end" type="Submit">Update</button>
+            <button class="btn btn-black rounded-0 text-uppercase mt-2 float-end">Update</button>
         </form>
     </div>
     <div class="col-12 col-lg-6 col-right">
@@ -43,6 +43,7 @@
             </thead>
             <tbody>
                 {% for order in orders %}
+                
                     <tr>
                         <td>
                             <a href="{% url 'order_history' order.order_number %}" titel="{{ order.order_number }}">
