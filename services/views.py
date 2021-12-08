@@ -35,6 +35,7 @@ def service_request(request, service_id):
     profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
         request_form = RequestForm(request.POST, instance=profile)
+        message_full_name = request.POST['full_name']
         if request_form.is_valid():
             request_form.save()
             subject = "Design Idea"
@@ -50,16 +51,21 @@ def service_request(request, service_id):
                 send_mail(subject, message, request.POST.get('email'), [settings.DEFAULT_FROM_EMAIL])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            messages.success(request, 'We have received your message and will get back to you as soon as possible'
-                                      ' with an order confirmation!')
-            return redirect(reverse('home'))
 
-    context = {
-        'service': service,
-        'request_form': request_form,
-    }
+            context = {
+                'message_full_name': message_full_name,
+                'service': service,
+                'request_form': request_form,
+            }
 
-    return render(request, 'services/service_request.html', context)
+            return render(request, 'services/service_request.html', context)
+    else:
+        context = {
+            'service': service,
+            'request_form': request_form,
+        }
+
+        return render(request, 'services/service_request.html', context)
 
 
 @login_required

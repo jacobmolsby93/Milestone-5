@@ -25,6 +25,20 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
+/* request message */
+
+.request-message {
+    border: 1px solid black !important;
+    background-color: #F5E9E4 !important;
+}
+
+.home-btn {
+    background-color: #000;
+    color: #fff;
+    font-size: .75rem;
+}
+
+
 /* Testamonials */
 
 img.img-fluid {

@@ -21,6 +21,18 @@
 <br>
 <div class="line-break"></div>
 <div class="container">
+    {% if message_full_name %}
+    <div class="row d-flex justify-content-center">
+        <div class="col-8 text-center request-message py-3 px-3 mb-3">
+            <h2>THANK YOU FOR YOUR ORDER {{ message_full_name }}!</h2>
+            <p>I will get back you as soon as possible wih an order confirmation and invoice!
+            </p>
+            <button class="home-btn btn btn-lg rounded-0 text-uppercase py-2">
+                <a href="{% url 'services' %}">Services</a>
+            </button>
+        </div>
+    </div>
+    {% else %}
     <div class="contact-form row d-flex justify-content-md-center mb-3">
         <div class="col-12 col-md-8 d-flex justify-content-md-center">
             <form action="{% url 'service_request' service.id %}" method="POST" id="service-form">
@@ -38,6 +50,7 @@
             </form>
         </div>
     </div>
+    {% endif %}
 </div>
 
 {% endblock %}
