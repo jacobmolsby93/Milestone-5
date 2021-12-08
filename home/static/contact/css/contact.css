@@ -31,10 +31,18 @@ textarea#id_message_box.textarea {
     resize: none;
 }
 
-.submit {
+.submit,
+.home-btn {
     background-color: #000;
     color: #fff;
     font-size: .75rem;
+}
+
+/* contact message */
+
+.contact-message {
+    border: 1px solid black !important;
+    background-color: #F5E9E4 !important;
 }
 
 /* Media queries*/

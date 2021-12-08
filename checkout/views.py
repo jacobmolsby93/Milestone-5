@@ -126,6 +126,7 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
+    url = request.session.get('url')
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -155,6 +156,7 @@ def checkout_success(request, order_number):
 
     template = 'checkout/checkout_success.html'
     context = {
+        'url': url,
         'order': order,
     }
 

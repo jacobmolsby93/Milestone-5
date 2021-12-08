@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
 from django.http import HttpResponse
 from .models import Contact
 from .forms import ContactForm
@@ -31,6 +32,7 @@ def ContactView(request):
     """
     form = ContactForm()
     if request.method == 'POST':
+        message_full_name = request.POST['full_name']
         form = ContactForm(request.POST)
         if form.is_valid():
             subject = "Enquiry"
@@ -44,13 +46,21 @@ def ContactView(request):
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
+                send_mail(subject, message, request.POST.get('email'), [settings.DEFAULT_FROM_EMAIL])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect("home")
-    template_name = 'contact/contact.html'
-    context = {
-        'contact_form': form
-    }
-    
-    return render(request, template_name, context)
+        template_name = 'contact/contact.html'
+        context = {
+            'message_full_name': message_full_name,
+            'contact_form': form
+        }
+        
+        return render(request, template_name, context)
+    else:
+        template_name = 'contact/contact.html'
+        context = {
+            'contact_form': form
+        }
+        return render(request, template_name, context)
+        
+

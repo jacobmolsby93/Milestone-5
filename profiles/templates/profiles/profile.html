@@ -22,7 +22,7 @@
 <div class="line-break"></div>
 <div class="container">
 <div class="row d-flex justify-content-center">
-    <div class="col-12 col-lg-6 col-left me-2">
+    <div class="col-sm-12 col-lg-4 col-md-6 profile me-2">
         <p class="text-muted">Profile Phone Number and Country</p>
         <form action="{% url 'profile' %}" id="profile-update-form">
             {% csrf_token%}
@@ -30,7 +30,7 @@
             <button class="btn btn-black rounded-0 text-uppercase mt-2 float-end">Update</button>
         </form>
     </div>
-    <div class="col-12 col-lg-6 col-right">
+    <div class="col-sm-12 col-lg-4 col-md-6 history">
         <p class="text-muted">Order History</p>
         <table class="table table-sm table-borderless">
             <thead>
