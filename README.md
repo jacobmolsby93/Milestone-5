@@ -1,140 +1,189 @@
 # Creator Studio Inc
 
+<<<<<<< HEAD
 Creator studio inc is a portolio website alongside a store, where the users of the page can look at the art that has been created and purchase anything that they feel will suite their needs. I created this website so that user owner easily can change the services and the styles of the website. To feel in control of the site in a way that a static website could never achieve.
 The sites provides many ways for the user to contact the owner with any request that they have.
 The styles section of the page is an easy way for the owner to pubslish the designs created. The user has an smooth checkout experience with help of stripe.
 
 ![Landing Page Gallery](https://github.com/jacobmolsby93/Milestone-5/blob/main/media/landing-page-gallery.png)
+=======
+Creator studio inc is a portfolio website alongside a store, where the users of the page can look at the art that has been created and purchase anything that they feel will suit their needs. I created this website so that the user owner easily can change the services and the styles of the website. To feel in control of the site in a way that a static website could never achieve.
+The site provides many ways for the user to contact the owner with any request that they have.
+The styles section of the page is an easy way for the owner to publish the designs created. The user has a smooth checkout experience with help of stripe.
+
+
+![Landing Page Gallery](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/landing-page-gallery.png)
+>>>>>>> 56b23c0b092c9322cbb5b8e79f8caa96c7df99bc
 
 ## Features 
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+#### Landing Page / Home Page
+- In the section of the page, I have created a gallery for the user of the page to be drawn in by the design. With an obvious call to action button in the middle of the page.
+    - ### Main Navigation
+    - ![Navbar](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/navbar.png)
+    
+    - #### Footer
+    - ![Footer](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/footer.png)
 
-### Existing Features
+#### About Page
+- Here I've made a simple about me section, where the user of the page can read about who the owner is am and what kind of work the owner loves to do.
+- ![About me]()
 
-- __Navigation Bar__
+#### Contact 
+- A simple form for the user to send an email to the owner of the page.
+- ![Contact form](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/contact-form.png)
 
-  - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
-  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
+#### Services
+- In the area of the page, the user can browse between the different services which the owner has to offer. As well as see a fixed price for the services provided.
+- Below the services page there are testimonials from the previous work that the owner has done.
+- ![Services](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/services.png)
+- ![Testamonials](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/services-testamonials.png)
 
+<<<<<<< HEAD
 ![Nav Bar]({{MEDIA_URL}}https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+=======
+#### Styles
+- Here the owner can easily upload finished styles to the page. The user of the page can have a look and make a purchase easily with the help of stripe checkout.
+- By uploading the owner of the site can navigate to the navigation bar of the page where they will find the button my profile. When pressed there is a dropdown menu with the option to either add a new style or where the owner can add a new service to the page.
+- ![Styles](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/styles.png)
+>>>>>>> 56b23c0b092c9322cbb5b8e79f8caa96c7df99bc
 
-- __The landing page image__
+#### Shopping bag
+- After the user has browsed around in the style section, and selected something that they want to buy. They can then go to the shopping bag the see what items have been selected.
+- In the shopping bag the user has the option of deleting products that have been selected.
 
-  - The landing includes a photograph with text overlay to allow the user to see exactly which location this site would be applicable to. 
-  - This section introduces the user to Love Running with an eye catching animation to grab their attention
 
-![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+#### My profile
+- In this area of the page, the user can see what they have ordered. As well as update the profile information of the user.
 
-- __Club Ethos Section__
+ 
+#### Signup 
+- If the user of the page is not a member of the site. They can easily signup to the page and make purchases and do the things mentioned above.
+- The complete authentication system is done with the help of Django-allauth.
 
-  - The club ethos section will allow the user to see the benefits of joining the Love Running meetups, as well as the benefits of running overall. 
-  - This user will see the value of signing up for the Love Running meetups. This should encourage the user to consider running as their form of exercise. 
 
-![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
+#### Emailing
+- The emailing services of the page are several. There is email functionality when ordering services, where the user of the page emails the owner.
+- There is an email form on contacts where the user of the page can email the owner of the page if they have any projects that are outside the scope of the page.
+- There is an email confirmation that is sent when the user of the page has ordered something from the shop styles section.
+- Lastly, anyone that visits the site can signup for a newsletter in the footer of the page. This function is made possible with the help of MailChimp
 
-- __Meetup Times section__
-
-  - This section will allow the user to see exactly when the meetups will happen, where they will be located and how long the run will be in kilometers. 
-  - This section will be updated as these times change to keep the user up to date. 
-
-![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
-
-- __The Footer__ 
-
-  - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is valuable to the user as it encourages them to keep connected via social media
-
-![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
-
-- __Gallery__
-
-  - The gallery will provide the user with supporting images to see what the meet ups look like. 
-  - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
-
-![Gallery](https://github.com/lucyrush/readme-template/blob/master/media/love_running_gallery.png)
-
-- __The Sign Up Page__
-
-  - This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able specify if they would like to take part in road, trail or both types of running. The user will be asked to submit their full name and email address. 
-
-![Sign Up](https://github.com/lucyrush/readme-template/blob/master/media/love_running_signup.png)
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
 
-- Another feature idea
+- #### A Blog posting system for the owner to update the users of what's happening on the page in a personalized way.
 
 ## Testing 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+Fixed message container, on small devices. was too wide for small devices.
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+fixed add to bag buttons on all screen sizes
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+fixed about me img link, had accidentally put a trailing comma 
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+fixing the navigation bar for mobile devices and getting the dropdown menus to work as I wanted.
+Took some work to make the finished product look like it does.
+
+The hamburger menu icon on mobile screens. I could not get the background color of the drop-down menu to the one I wanted.
+but fixed it by trying it out on the inspect page.
+
+On the style detail page, when going from large screens to smaller screens I had issues with the margins and the two columns aligning up when stacked on top of each other.
+
+Had complications when trying to save the user information to the actual profile. Had to go through the code several times before realizing I had forgotten to implement a part of the code.
+
+All the images of the page when uploaded to amazon aws generated a new name for themselves in the deployed project so the images could not be found.
+I solved this firstly by importing all the pictures again on the deployed page, through the admin panel.
+The images that hardcoded into the site I found the solution was to put {{ MEDIA_URL }}imng.png, which I didn't do in any of the places.
+
+
+Had a lot of issues with the emailing of the page. It was my Gmail account which I connected that didn't work for some reason.
+I troubleshot this over and over again for several hours until I came to this conclusion.
+
+The webhook handler I have used is from the boutique ado walkthrough, with some small modifications. but implementing it into my project
+required troubleshooting of the handler as well as the actual webhook. I got it to work after finally I realized that my workspace had to
+be public before the webhook handler could connect to the actual page.
 
 
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2F8000-azure-loon-noxkcxbz.ws-us21.gitpod.io%2F)
 - CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
+  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2F8000-azure-loon-noxkcxbz.ws-us21.gitpod.io%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=)
+  - But some warnings, but the CSS code has been altered to pass through the test
 
 ### Unfixed Bugs
-
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed. 
+- There is one bug when sliding between screen sizes which I have tried to fix 
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
-
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab 
-  - From the source section drop-down menu, select the Master Branch
-  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
-
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
-
+The site was deployed using Heroku.
+To deploy the site to Heroku these are the steps that you have to take for the deployment to be successful.
+- First, you need to create a Heroku app on the Heroku page after you have logged in. And choose the region that's closest to you.
+- Once you have created the application, You need to head over to resources and add the Postgres database.
+- When the Postgres database has been added you 
+- for Postgres to work in the workspace you need to install dj_database_url and psycopg2-binary with a pip install.
+- Then import dj_database_url in settings.py.
+- After all that you have to assign the database variable the dj_database_url.parse to your Postgres database.
+- Then set all the crucial variables into environment variables in Heroku, such as secret keys database keys, and such.
+- Once this is complete, a Procfile is needed to tell Heroku to create a web dyno. Which will run gunicorn and serve the Django app.
+- Then add the hostname of the Heroku app to allowed hosts in settings.py, along with the localhost used for Gitpod.
+- With this complete, now it's time to add the changes to GitHub and push it to finalize the changes.
+- In Heroku, connect the git repository to the Heroku application to deploy the application.
+- At this stage the application has no connection to any of the static files. To access the static files, we need to connect a separate web service called Amazon Aws.
+- In amazon, create an account. When the account is created. Create an S3 bucket to store the static files from.
+- In the bucket turn on static website hosting.
+- In the permission tab, set up the cors config. Which is going to set the required access between the Heroku app and the bucket created.
+- After that add a bucket policy in the policy generator.
+- Then head to the IAM management page.
+- Create a group for the user to live in.
+- Create an access policy, granting access to the S3 bucket created.
+- Create a user, then assign the user to the group.
+- Download the csv file to get the access key and secret access key to assign them to the evironment varibles in heroku.
+- Now we need connect the S3 bucket to django, by installing boto3 and django-storages.
+- pip3 freeze > requirements.txt
+- Add storages to installed apps.
+- Add the appropriate settings to the settings.py file.
+- Now djano will collect the static files and upload them to S3.
+- In the bucket. Create a folder called media, and upload all the media files related to the page.
+- With all this complete the website is now deployed with static files ready and media files uploaded.
 
 ## Credits 
 
-In this section you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-
-You can break the credits section up into Content and Media, depending on what you have included in your project. 
+- #### Code credit
+- Footer from here -- https://jsfiddle.net/bootstrapious/m215fdnw
+- navbar base from the Boutique Ado.
+- Toasts - Code institute // bootstrap
+- HTML layout on toasts - Code institute, Boutique Ado
+- Html layout on - main-nav // mobile-top-header - Code Institute, Boutique Ado
+- Parts of the Views - Code Institute, Boutique Ado.
+- UserProfile model - Code Institute, Boutique Ado.
+- Order model - Code Institute, Boutique Ado.
+- Checkout app - Large parts taken from Boutique Ado
+- Webhook files - taken from Code Institute, Boutique Ado.
+- Gallery on the home page, Love Running Code Institute.
+- Complete Bag application - Boutique Ado 
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
+- All the content has been written by me.
+- In the Testimonail part of the page. In the code, I just realized i have missspelt it.
+ 
 ### Media
 
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
+#### Styles
+All Graphic design images are taken from the page - https://stock.adobe.com/.
 
+#### About me page
+About me image is taken from pexels - https://www.pexels.com/sv-se/foto/svartvitt-mode-man-person-1040880/
 
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
+#### Services 
+Testimonial image yellow background from pexels - https://www.pexels.com/sv-se/foto/kvinna-ogon-modell-ansikte-415829/
+Testimonial image girl jeans jacket from pexels - https://www.pexels.com/sv-se/foto/mode-kvinna-ung-tittar-1130626/
+Testimonial image guy blue t-shirt from pexels - https://www.pexels.com/sv-se/foto/man-person-ansikte-staende-2379004/
+Testimonial image girl black t-shirt from pexels - https://www.pexels.com/sv-se/foto/mode-person-hander-kvinna-1024311/
 
-## Other General Project Advice
+#### Gallery images.
 
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
-
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
-
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
-
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
-
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+I have lost the documentation where I have written down the links. Been trying to find from where I downloaded them.
+Can't find it. I know it's from pexels and from adobe, but I can't find the links.
