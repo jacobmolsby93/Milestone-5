@@ -1,19 +1,11 @@
 # Creator Studio Inc
 
-<<<<<<< HEAD
-Creator studio inc is a portolio website alongside a store, where the users of the page can look at the art that has been created and purchase anything that they feel will suite their needs. I created this website so that user owner easily can change the services and the styles of the website. To feel in control of the site in a way that a static website could never achieve.
-The sites provides many ways for the user to contact the owner with any request that they have.
-The styles section of the page is an easy way for the owner to pubslish the designs created. The user has an smooth checkout experience with help of stripe.
-
-![Landing Page Gallery](https://github.com/jacobmolsby93/Milestone-5/blob/main/media/landing-page-gallery.png)
-=======
 Creator studio inc is a portfolio website alongside a store, where the users of the page can look at the art that has been created and purchase anything that they feel will suit their needs. I created this website so that the user owner easily can change the services and the styles of the website. To feel in control of the site in a way that a static website could never achieve.
 The site provides many ways for the user to contact the owner with any request that they have.
 The styles section of the page is an easy way for the owner to publish the designs created. The user has a smooth checkout experience with help of stripe.
 
 
 ![Landing Page Gallery](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/landing-page-gallery.png)
->>>>>>> 56b23c0b092c9322cbb5b8e79f8caa96c7df99bc
 
 ## Features 
 
@@ -39,14 +31,11 @@ The styles section of the page is an easy way for the owner to publish the desig
 - ![Services](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/services.png)
 - ![Testamonials](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/services-testamonials.png)
 
-<<<<<<< HEAD
-![Nav Bar]({{MEDIA_URL}}https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
 =======
 #### Styles
 - Here the owner can easily upload finished styles to the page. The user of the page can have a look and make a purchase easily with the help of stripe checkout.
 - By uploading the owner of the site can navigate to the navigation bar of the page where they will find the button my profile. When pressed there is a dropdown menu with the option to either add a new style or where the owner can add a new service to the page.
 - ![Styles](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/styles.png)
->>>>>>> 56b23c0b092c9322cbb5b8e79f8caa96c7df99bc
 
 #### Shopping bag
 - After the user has browsed around in the style section, and selected something that they want to buy. They can then go to the shopping bag the see what items have been selected.
