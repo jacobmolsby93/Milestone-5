@@ -1,10 +1,10 @@
-# Love Running
+# Creator Studio Inc
 
-In this section, you will include one or two paragraphs providing an overview of your project. Essentially, this part is your sales pitch. At this stage, you should have a name for your project so use it! Don’t introduce the project as a Portfolio project for the diploma. In this section, describe what the project hopes to accomplish, who it is intended to target and how it will be useful to the target audience. 
+Creator studio inc is a portolio website alongside a store, where the users of the page can look at the art that has been created and purchase anything that they feel will suite their needs. I created this website so that user owner easily can change the services and the styles of the website. To feel in control of the site in a way that a static website could never achieve.
+The sites provides many ways for the user to contact the owner with any request that they have.
+The styles section of the page is an easy way for the owner to pubslish the designs created. The user has an smooth checkout experience with help of stripe.
 
-For example; Love Running is a site that hopes to help keep people motivated to meet up for runs on a regular basis in Dublin, Ireland. The site will be targeted toward runners who are looking for a way to socialise and keep themselves fit. Love Running will be useful for runners to see exactly when and where they should be to join the running club. 
-
-![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
+![Landing Page Gallery](https://github.com/jacobmolsby93/Milestone-5/blob/main/media/landing-page-gallery.png)
 
 ## Features 
 
@@ -17,7 +17,7 @@ In this section, you should go over the different parts of your project, and des
   - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
   - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
 
-![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+![Nav Bar]({{MEDIA_URL}}https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
 
 - __The landing page image__
 

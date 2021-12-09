@@ -59,13 +59,13 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <a id="keep" href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5 btn-md">
+                        <a id="keep" href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5 btn-sm">
                             <span class="icon">
                                 <i class="fas fa-chevron-left keep"></i>
                             </span>
                             <span class="text-uppercase keep">Keep Shopping</span>
                         </a>
-                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 btn-md"
+                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 p-1 btn-sm"
                             value="Add to bag">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">

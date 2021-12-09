@@ -40,5 +40,10 @@
         margin-left: 0;
     }
 
-    
+    .btn-outline-black {
+        font-size: .5rem;
+        padding: .375rem .375rem;
+        width: 150px;
+        text-align: center;
+    }
 }

@@ -70,13 +70,13 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right">
-                            <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 btn-lg mb-2">
+                            <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 shopping btn-md mb-2">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg mb-2">
+                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 checkout btn-md mb-2">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
@@ -91,7 +91,7 @@
             <p>Your bag is empty.</p>
             <ul class="list-unstyled">
                 <li>
-                    <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 btn-md">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'services' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <a href="{% url 'services' %}" class="btn btn-outline-black mt-2 rounded-0 btn-md">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
@@ -115,12 +115,12 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)
     })
 </script>
-<script type="text/javascript">
+<script>
     // Remove item and reload on click
     function removeItem() {
         $('.remove-item').click(function (e) {

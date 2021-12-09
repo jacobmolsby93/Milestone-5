@@ -27,7 +27,7 @@
     {% endblock %}
 
     {% block corejs %}
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -78,14 +78,14 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="{% url 'profile' %}" id="user-options" data-toggle="dropdown"
+                        <a class="text-black nav-link" href="{% url 'profile' %}" id="user-options1" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
                             </div>
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options1">
                             {% if request.user.is_superuser %}
                                 <a href="{% url 'add_style' %}" class="dropdown-item">Style Management</a>
                                 <a href="{% url 'add_service' %}" class="dropdown-item">Service Management</a>
@@ -213,15 +213,13 @@
                             </div>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </footer>
 
     {% block postloadjs %}
-    <script type='text/javascript'>
+    <script>
         $('.toast').toast('show');
 
         (function ($) {

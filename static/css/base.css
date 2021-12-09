@@ -57,7 +57,7 @@ body>header>div.row.bottom-row>nav {
 #main-nav a {
   color: #fff !important;
   margin-bottom: 10px;
-  transition: .3sec;
+  transition-duration: 1s;
 }
 
 #main-nav a:hover {
@@ -325,7 +325,6 @@ a {
   body>header>div.row.bottom-row>nav>div.mobile-header>li:nth-child(3)>a {
     padding-left: 0;
     margin-left: 0;
-    padding-left;
   }
 
   #user-options {
@@ -343,7 +342,11 @@ a {
   body>header>div.row.bottom-row>nav>div.mobile-header>li.list-inline-item.show>div {
     position: absolute;
     left: 0;
-    top: 30;
+    top: 30px;
+  }
+  .message-container {
+    width: 60%;
+    float: right;
   }
 }
 

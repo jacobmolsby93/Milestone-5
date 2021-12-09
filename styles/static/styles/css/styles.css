@@ -59,6 +59,9 @@
     zoom: .7;
 }
 
+#add-to {
+    padding: 5px !important;
+}
 
 @media (max-width: 992px) {
     .col-a {
@@ -67,14 +70,6 @@
     }
     .bottom {
         margin-top: 20px;
-    }
-
-    #add-to {
-        padding: .375rem .375rem;
-    }
-
-    #keep {
-        padding: .375rem .375rem;
     }
 }
 
