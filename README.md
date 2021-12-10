@@ -4,6 +4,7 @@ Creator studio inc is a portfolio website alongside a store, where the users of 
 The site provides many ways for the user to contact the owner with any request that they have.
 The styles section of the page is an easy way for the owner to publish the designs created. The user has a smooth checkout experience with help of stripe.
 
+[Deployed Site](https://milestone-5-creator.herokuapp.com/)
 
 ![Landing Page Gallery](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/landing-page-gallery.png)
 
