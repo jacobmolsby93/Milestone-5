@@ -20,7 +20,7 @@ The styles section of the page is an easy way for the owner to publish the desig
 
 #### About Page
 - Here I've made a simple about me section, where the user of the page can read about who the owner is am and what kind of work the owner loves to do.
-- ![About me]()
+- ![About me](https://github.com/jacobmolsby93/Milestone-5/blob/a9e19084af148b3da539fcaaf35047368f182411/media/About%20me%20page.png)
 
 #### Contact 
 - A simple form for the user to send an email to the owner of the page.
