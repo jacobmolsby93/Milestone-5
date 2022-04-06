@@ -1,32 +1,43 @@
-<div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav mx-auto ul-container">
-        <li class="nav-item d-block">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
-                Home
-            </a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'about-me' %}">
-                About
-            </a>
-        </li>
+<div class="offcanvas offcanvas-start d-flex d-lg-none" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasMenuLabel">Page Links</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled">
+            <li class="nav-item d-block">
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'about-me' %}">
+                    About
+                </a>
+            </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'contact' %}">
-                Contact
-            </a>
-        </li>
+            <li class="nav-item dropdown">
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'contact' %}">
+                    Contact
+                </a>
+            </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'services' %}">
-                Services
-            </a>
-        </li>
+            <li class="nav-item dropdown">
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'services' %}">
+                    Services
+                </a>
+            </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'styles' %}">
-                Shop Styles
-            </a>
-        </li>
-    </ul>
+            <li class="nav-item dropdown">
+                <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'styles' %}">
+                    Shop Styles
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="offcanvas-footer pb-3">
+        <a href="{% url 'home' %}" id="main-logo" class="nav-link main-logo-link">
+            <h2 class="logo-font text-black my-0"><strong>Creator Studio inc.</strong></h2>
+        </a>
+    </div>
 </div>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid position-fixed h-100 custom-404-container d-flex justify-content-center align-items-center">
+    <div class="inner-404-container col-10 col-md-6 text-center">
+        <h1 class="d-flex justify-content-center">404 Error</h1>
+        <p>Page Not Found, Go Back To <a href="{% url 'home' %}">Home</a></p>
+        
+    </div>
+</div>
+{% endblock%}
+
+
+{% block postloadjs %}
+<script>
+    const footer = document.getElementById('main-footer')
+    footer.style.display = 'none'
+    const navbar = document.getElementById('baseHeader')
+    navbar.style.display = 'none'
+</script>
+{% endblock %}

@@ -20,31 +20,37 @@
 </div>
 <div class="line-break"></div>
 <div class="container">
-    <div class="row d-flex d-flex justify-content-md-center color-container mb-3">
-        <div class="col-md-6" id="img-container">
-            <img class="about-me-img" src="{{ MEDIA_URL }}black-and-white-jeans-man.jpg"
-                alt="Black and white image of guy in jeans jacket">
-        </div>
-        <div class="col-lg-4 col-md-12 ms-2 mt-md-5">
-            <h2>My name is Jack</h2>
-            <p class="about-me-text">
-                I am a UK based graphic designer, Welcome
-                to my page, have a look around to see my
-                previous <strong><a href="{% url 'home'%}">Work</a></strong>
-                If you see anything you like feel free to purchase.
-            </p>
-            <br>
-            <p class="about-me-text">
-                I have been in graphic design for the past 5 years,
-                Its my passion, I love the process of creating,
-                and delivering a product that my clients proudly
-                can present to anyone!
-            </p>
-            <br>
-            <p class="about-me-text text-small">Contact me for further enquires!</p>
-            <button class="contact-me btn btn-lg rounded-0 text-uppercase py-3">
-                <a href="{% url 'contact' %}">Contact Me</a>
-            </button>
+    <div class="color-container d-flex mb-4">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-11 col-md-6 col-xl-4">
+                <div class="about-img-wrapper pt-3 p-md-3">
+                    <img class="about-me-img" src="{{ MEDIA_URL }}black-and-white-jeans-man.jpg"
+                    alt="Black and white image of guy in jeans jacket">
+                </div>
+            </div>
+            <div class="col-11 col-md-6 col-xl-4">
+                <div class="text-wrapper p-3">
+                    <h2>My name is Jack</h2>
+                    <p class="about-me-text">
+                        I am a UK based graphic designer, Welcome
+                        to my page, have a look around to see my
+                        previous <strong><a href="{% url 'home'%}">Work</a></strong>
+                        If you see anything you like feel free to purchase.
+                    </p>
+                    <p class="about-me-text">
+                        I have been in graphic design for the past 5 years,
+                        Its my passion, I love the process of creating,
+                        and delivering a product that my clients proudly
+                        can present to anyone!
+                    </p>
+                    <div class="contact-wrapper text-end">
+                        <p class="about-me-text text-small">Contact me for further enquires!</p>
+                        <button class="contact-me btn btn-lg rounded-0 text-uppercase py-3">
+                            <a href="{% url 'contact' %}">Contact Me</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
