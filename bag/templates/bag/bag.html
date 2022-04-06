@@ -19,94 +19,73 @@
     <h3 class="text-center mt-3 underline">Shopping Bag</h3>
 </div>
 <div class="line-break"></div>
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             {% if bag_items %}
-            <div class="table-responsive rounded ">
-                <table class="table table-sm table-borderless">
-                    <thead class="text-black">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Product Info</th>
-                            <th scope="col">Price</th>
-                        </tr>
-                    </thead>
-                    {% for item in bag_items %}
-                    <tr>
-                        <td class="p-3 w-25">
-                            <img class="w-100 img-fluid-rounded" src="{{ item.style.style_image.url }}" alt="">
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">{{ item.style.style_name}}</p>
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">${{ item.style.style_price }}</p>
-                        </td>
-                        <td class="py-3">
+                {% for item in bag_items %}
+                <div class="bag-item-wrapper">
+                    <div class="bag-img-wrapper position-relative">
+                        <img class="w-100 h-100 bag-style-image" src="{{ item.style.style_image.url }}" alt="Image {{ style.style_name }}">
+                        <div class="form-wrapper position-absolute">
                             <form class="form update-form" method="POST"
-                                action="{% url 'remove_from_bag' item.item_id %}">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm btn-black rounded-0"
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i id="delete" data-item-id="remove_{{ item.item_id }}"
-                                                        class="far fa-trash-alt"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
-                        <td class="py-3">
-                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                        </td>
-                    </tr>
-                    <div id="result"></div>
-                    {% endfor %}
-                    <tr>
-                        <td colspan="5" class="pt-5 text-right">
-                            <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 shopping btn-md mb-2">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
+                            action="{% url 'remove_from_bag' item.item_id %}">
+                            {% csrf_token %}
+                            <button class="decrement-qty btn btn-sm btn-black rounded-0"
+                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                <span>
+                                    <i id="delete" data-item-id="remove_{{ item.item_id }}"
+                                        class="far fa-trash-alt"></i>
                                 </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 checkout btn-md mb-2">
-                                <span class="text-uppercase">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
+                            </button>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="info-wrapper text-end">
+                        <h5 class="my-0">{{ item.style.style_name}}</h5>
+                        <p class="my-0">${{ item.style.style_price }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="end-wrapper text-end mb-4">
+                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                    <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 text-small mt-1">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 text-small mt-1">
+                        <span class="text-uppercase">Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+    
+                </div>
 
-                </table>
-            </div>
             {% else %}
-            <p>Your bag is empty.</p>
-            <ul class="list-unstyled">
-                <li>
-                    <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 btn-md">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Browsing Styles</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'services' %}" class="btn btn-outline-black mt-2 rounded-0 btn-md">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Check Out Services</span>
-                    </a>
-                </li>
-            </ul>
+                <p>Your bag is empty.</p>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 btn-md">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Browsing Styles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'services' %}" class="btn btn-outline-black mt-2 rounded-0 btn-md">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Check Out Services</span>
+                        </a>
+                    </li>
+                </ul>
             {% endif %}
         </div>
     </div>

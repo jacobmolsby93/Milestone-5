@@ -1,45 +1,14 @@
 
-.underline {
-    width: 200px;
-    border-bottom: 1px solid black;
-}
-
-.line-break {
-    border-bottom: 1px solid black;
+.bag-item-wrapper {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
 }
 
-@media (max-width: 700px) {
-    .btn-outline-black {
-        height: 30px;
-        width: 120px;
-        padding: 0;
-        font-size: .8rem;
-        margin: 0;
-        margin-right: 10px;
-    }
-    .btn-black {
-        height: 30px;
-        width: 150px;
-        padding: 0;
-        font-size: .8rem;
-        margin: 0;
-        margin-right: 10px;
-        margin-left: 10px;
-    }
+.bag-style-image {
+    max-width: 300px;
+}
 
-    .table-responsive {
-        font-size: .8rem;
-        margin-right: 0;
-        padding-right: 0;
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    .btn-outline-black {
-        font-size: .5rem;
-        padding: .375rem .375rem;
-        width: 150px;
-        text-align: center;
-    }
+.form-wrapper {
+    top: 10px;
+    left: 10px;
 }
