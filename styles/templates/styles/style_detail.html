@@ -18,59 +18,44 @@
 </div>
 
 <div class="line-break"></div>
-<div class="container-fluid mb-3">
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-12 col-lg-4 col-md-6 col-a col-pink">
-            <div class="image-container my-4">
-                <hr>
-                {% if style.style_image %}
-                <img class="card-img-top img-thumbnail border-0 mb-0" src="{{ style.style_image.url }}"
-                    alt="{{ style.style_name }}">
-                {% else %}
-                <img class="card-img-top img-thumbnail border-0" src="{{ MEDIA_URL }}noimage.png"
-                    alt="{{ style.style_name }}">
-                {% endif %}
-                <hr>
-            </div>
-        </div>
 
-        <div class="col-12 col-lg-4 col-md-6 pt-3 bottom ms-md-3 col-a pb-5 col-pink">
+<div class="container-fluid mb-4">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-7 col-xl-5 color-container p-3">
             {% if request.user.is_superuser %}
-            <div class="row d-inline float-end">
-                <a href="{% url 'delete_style' style.id %}" class="text-small text-danger">Delete</a>
-                <a href="{% url 'edit_style' style.id %}" class="text-small text-success">Edit</a>
-            </div>
-            {% endif %}
-            <h4>{{ style.style_name }}</h4>
-
-            <hr>
-            <p><strong>{{ style.style_description }}</strong></p>
-            <hr>
-            <p><strong>Price: {{ style.style_price }} $</strong></p>
-            <form classs="form" action="{% url 'add_to_bag' style.id %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-12">
-                        <div class="form-group w-50">
-                            <div class="input-group">
-                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
-                                    max="1" data-item_id="{{ style.id }}" id="id_qty_{{ style.id }}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <a id="keep" href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 mt-5 btn-sm">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left keep"></i>
-                            </span>
-                            <span class="text-uppercase keep">Keep Shopping</span>
-                        </a>
-                        <input id="add-to" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 p-1 btn-sm"
-                            value="Add to bag">
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <div class="edit-style-wrapper text-end">
+                    <a href="{% url 'delete_style' style.id %}" class="text-small text-danger">Delete</a>
+                    <a href="{% url 'edit_style' style.id %}" class="text-small text-success">Edit</a>
                 </div>
-            </form>
+            {% endif %}
+            <div class="about-img-wrapper">
+                <h4>{{ style.style_name }}</h4>
+                <img class="style-img" src="{{ style.style_image.url }}"
+                alt="Image of {{ style.style_name }}">
+            </div>
+            <div class="row">
+                <div class="col-12 pt-2">
+                    <p><strong>{{ style.style_description }}</strong></p>
+                    <form classs="form" action="{% url 'add_to_bag' style.id %}" method="POST">
+                        {% csrf_token %}
+
+                    <input class="form-control qty_input" type="hidden" name="quantity" value="1" min="1"
+                        max="1" data-item_id="{{ style.id }}" readonly="true" id="id_qty_{{ style.id }}">
+
+                        <div class="col-12 d-flex justify-content-between align-items-center">
+                            <a id="keep" href="{% url 'styles' %}" class="">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left keep"></i>
+                                </span>
+                                <span class="text-uppercase keep">Keep Shopping</span>
+                            </a>
+                            <input id="add-to" type="submit" class="btn btn-black rounded-0"
+                                value="Add to bag">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

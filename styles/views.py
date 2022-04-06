@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import ShopStyles
-from services.models import Services
 from .forms import StyleForm
 
 
@@ -19,10 +18,15 @@ def shop_styles(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter anything in the search!")
+                messages.error(
+                    request, "You didn't enter anything in the search!"
+                )
                 return redirect(reverse('products'))
             
-            queries_styles = Q(style_name__icontains=query) | Q(style_description__icontains=query)
+            queries_styles = (
+                Q(style_name__icontains=query) |
+                Q(style_description__icontains=query)
+            )
             styles = styles.filter(queries_styles)
 
     context = {
@@ -46,6 +50,7 @@ def style_detail(request, style_id):
 
     return render(request, 'styles/style_detail.html', context)
 
+
 @login_required
 def add_style(request):
     """
@@ -62,7 +67,10 @@ def add_style(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('style_detail', args=[style.id]))
         else:
-            messages.error(request, 'Failed to add product, Please ensure the form is valid.')
+            messages.error(
+                request, 
+                'Failed to add product, Please ensure the form is valid.'
+            )
     else:
         form = StyleForm()
     template = "styles/add_style.html"
@@ -90,11 +98,13 @@ def edit_style(request, style_id):
             messages.success(request, 'Successfully updated style!')
             return redirect(reverse('style_detail', args=[style.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request, 
+                'Failed to update product. Please ensure the form is valid.'
+            )
     else:
         form = StyleForm(instance=style)
         messages.info(request, f'You are editing {style.style_name}!')
-
 
     template = 'styles/edit_style.html'
     context = {
@@ -115,5 +125,5 @@ def delete_style(request, style_id):
         
     style = get_object_or_404(ShopStyles, pk=style_id)
     style.delete()
-    messages.success(request, 'style deleted!')
+    messages.info(request, 'style deleted!')
     return redirect(reverse('styles'))
