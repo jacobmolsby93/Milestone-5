@@ -20,65 +20,61 @@
 </div>
 <div class="line-break"></div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-lg-6 order-lg-last mb-5">
-            <p class="text-muted">Order Summary: </p>
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <p class="text-muted"><strong>Order Summary:</strong> </p>
             {% for item in bag_items %}
-            <div class="row">
-                <div class="col-2 mb-1">
-                    <a href="{% url 'style_detail' item.style.id %}">
-                        {% if item.style.style_image %}
-                        <img class="w-100" src="{{ item.style.style_image.url }}" alt="{{ item.style.style_name }}">
-                        {% else %}
-                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.style.style_name }}">
-                        {% endif %}
-                    </a>
-                </div>
-                <div class="col-7">
-                    <p class="my-0"><strong>{{ item.style.style_name }}</strong></p>
-                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                </div>
-                <div class="col-3 text-right">
-                    <p class="my-0 small text-muted">${{ item.style.style_price }}</p>
+            <div class="bag-item-wrapper">
+                <div class="bag-img-wrapper position-relative">
+                {% if item.style.style_image %}
+                    <img class="w-100 h-100 bag-style-image" src="{{ item.style.style_image.url }}" alt="Image {{ style.style_name }}">
+                {% endif %}
+                <div class="form-wrapper position-absolute">
+                    <form class="form update-form" method="POST"
+                        action="{% url 'remove_from_bag' item.item_id %}">
+                        {% csrf_token %}
+                        <button class="decrement-qty btn btn-sm btn-black rounded-0"
+                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                            <span>
+                                <i id="delete" data-item-id="remove_{{ item.item_id }}"
+                                    class="far fa-trash-alt"></i>
+                            </span>
+                        </button>
+                    </form>
                 </div>
             </div>
+            <div class="info-wrapper text-end me-3 mb-1">
+            <h5 class="my-0">{{ item.style.style_name}}</h5>
+            <p class="my-0">${{ item.style.style_price }}</p>
+            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
             {% endfor %}
-            <hr class="my-0">
-            <div class="row text-black text-right">
-                <div class="col-7 offset-2">
-                    <p class="my-0">Grand Total:</p>
-                </div>
-                <div class="col-3">
-                    <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6">
-            <p class="text-muted">Fill out the form below to complete your order</p>
+            <p class="my-0">Grand Total:</p>
+            <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+            <p class="text-muted text-start">Fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Customer Details</legend>
-                    {{ order_form.full_name | as_crispy_field }}
-                    {{ order_form.email | as_crispy_field }}
-                    {{ order_form.phone_number | as_crispy_field }}
-                    {{ order_form.postcode | as_crispy_field }}
-                    {{ order_form.country | as_crispy_field }}
-                    <div class="form-check form-check-inline float-right mr-0">
-                        {% if user.is_authenticated %}
+                <fieldset class="rounded mb-3">
+                <legend class="fieldset-label small text-black px-2 w-auto">Customer Details</legend>
+                {{ order_form.full_name | as_crispy_field }}
+                {{ order_form.email | as_crispy_field }}
+                {{ order_form.phone_number | as_crispy_field }}
+                {{ order_form.postcode | as_crispy_field }}
+                {{ order_form.country | as_crispy_field }}
+                <div class="form-check form-check-inline float-right mr-0">
+                    {% if user.is_authenticated %}
                         <label class="form-check-label" for="id-save-info">Save this delivery information to my
                             profile</label>
                         <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
                             checked>
-                        {% else %}
+                    {% else %}
                         <label class="form-check-label" for="id-save-info">
                             <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
                             <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
                         </label>
-                        {% endif %}
-                    </div>
+                    {% endif %}
+                </div>
                 </fieldset>
-                <fieldset class="px-3">
+                <fieldset class="mt-2">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                     <!-- A Stripe card element will go here -->
                     <div class="mb-3" id="card-element"></div>
@@ -87,14 +83,14 @@
                     <!-- Pass the client secret to the view so we can get the payment intent id -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
-                <div class="submit-button text-right mt-5 mb-2">
-                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+                <div class="submit-button text-end mt-3 mb-4">
+                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0 mt-1">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Adjust Bag</span>
                     </a>
-                    <button id="submit-button" class="btn btn-black rounded-0">
+                    <button id="submit-button" class="btn btn-black rounded-0 mt-1">
                         <span class="font-weight-bold">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
@@ -107,10 +103,11 @@
                         <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
                     </p>
                 </div>
-            </form>
+            </form>        
         </div>
     </div>
 </div>
+<!-- Loading overlay -->
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">

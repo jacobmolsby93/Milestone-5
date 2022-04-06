@@ -28,7 +28,9 @@
                 {% for item in bag_items %}
                 <div class="bag-item-wrapper">
                     <div class="bag-img-wrapper position-relative">
+                        {% if item.style.style_image %}
                         <img class="w-100 h-100 bag-style-image" src="{{ item.style.style_image.url }}" alt="Image {{ style.style_name }}">
+                        {% endif %}
                         <div class="form-wrapper position-absolute">
                             <form class="form update-form" method="POST"
                             action="{% url 'remove_from_bag' item.item_id %}">
@@ -43,13 +45,14 @@
                         </form>
                         </div>
                     </div>
-                    <div class="info-wrapper text-end">
+                    <div class="info-wrapper text-end me-3 mb-1">
                         <h5 class="my-0">{{ item.style.style_name}}</h5>
                         <p class="my-0">${{ item.style.style_price }}</p>
+                        <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                     </div>
                 </div>
                 {% endfor %}
-                <div class="end-wrapper text-end mb-4">
+                <div class="end-wrapper text-end mb-4 me-3">
                     <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
                     <a href="{% url 'styles' %}" class="btn btn-outline-black rounded-0 text-small mt-1">
                         <span class="icon">
