@@ -34,8 +34,8 @@
     </div>
     {% else %}
     <div class="contact-form row d-flex justify-content-md-center mb-3">
-        <div class="col-12 col-md-8 d-flex justify-content-md-center">
-            <form action="{% url 'service_request' service.id %}" method="POST" id="service-form">
+        <div class="col-12 col-md-7 col-xl-5 d-flex justify-content-center color-container p-sm-4">
+            <form action="{% url 'service_request' service.id %}" method="POST" class="color-form w-100" id="service-form">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-2 me-3 ms-3 py-3">
                     <legend class="fieldset-label small text-black">For: {{ service }}</legend>

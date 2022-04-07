@@ -22,18 +22,19 @@
 <div class="line-break"></div>
 <div class="container">
     <div class="contact-form row d-flex justify-content-md-center mb-3">
-        <div class="col-12 col-md-8 d-flex justify-content-md-center">
-            <form action="{% url 'add_service' %}" method="POST" class="form mb-2 col-pink" enctype="multipart/form-data">
+        <div class="col-12 col-md-7 col-xl-5 d-flex justify-content-center color-container p-sm-4">
+            <form action="{% url 'contact' %}" class="color-form w-100" method="POST" id="add-service-form" enctype="multipart/form-data">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-2 me-3 ms-3 py-3">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Add Service</legend>
+                <fieldset>
+                    <legend class="fieldset-label text-small text-black">Add Service</legend>
                         {{ form | crispy }}
                 </fieldset>
                 <div class="mb-2 me-2 d-flex justify-content-end">
-                    <button type="submit" class=" submit btn btn-md rounded-0 text-uppercase py-2">Add Service</button>
+                    <button type="submit" class="submit btn btn-lg rounded-0 text-uppercase py-2 px-4 mt-3">Send Message</button>
                 </div>
             </form>
         </div>
+    </div>
     </div>
 </div>
 
