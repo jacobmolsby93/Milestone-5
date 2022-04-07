@@ -18,94 +18,108 @@
     <h3 class="text-center mt-3 underline">Services</h3>
 </div>
 
-<div class="line-break"></div>
+<div class="line-break mb-0 mt-4"></div>
 
-<div class="container-fluid mb-3">
-    <div class="row">
-        {% for service in services %}
-        <div class="col-md-6  d-flex justify-content-center">
-            <div class="col-sm-12 col-lg-8 mb-2">
-                <div class="card service-card h-100 border-1 rounded-0">
-                    <div class="card-body">
-                        {% if service.service_image %}
-                        <a href="">
-                            <img class="card-img-top img-thumbnail border-0 mb-0" src="{{ service.service_image.url }}"
-                                alt="{{ service.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid border-0" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ service.name }}">
-                        </a>
-                        {% endif %}
-                    </div>
-                    <div class="row card-body pt-0">
-                        <h4 class="mt-0 text-center">{{ service.name }}</h4>
-                        <hr>
-                        <div class="col-6">
-                            <p>{{ service.description }}</p>
-                            <ul>
-                                <li>
-                                    <strong>
-                                        <p class="mb-0">Pricing: {{ service.price }} $</p>
-                                    </strong>
-                                    <p><small>{{ service.pricing_description }}</small></p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 d-flex justify-content-center align-items-center">
-                            <a href="{% url 'service_request' service.id %}">
+<div class="container-fluid mb-3 p-0">
+    <div class="carousel-wrapper">
+        <div id="serviceCarousel" class="carousel slide position-relaitve" data-bs-ride="carousel" data-bs-interval="false">
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">Custom Logo</button>
+            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="1" aria-label="Slide 2">Flyer Design</button>
+            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="2" aria-label="Slide 3">Bussiness Card</button>
+            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="3" aria-label="Slide 4">Landing Page</button>
+            </div>
+            
+            <div class="carousel-inner">
+                {% for service in services %}
+                    <div class="carousel-item" id="{{ service.id }}">
+                        <div class="row">
+                            <div class="service-img-wrapper col-12 col-md-6">
+                                {% if service.service_image %}
+                                    <img src="{{ service.service_image.url }}" class="service-image" alt="{{ service.name }}">
+                                    {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.png" class="service-image" alt="{{ service.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="service-text-wrapper d-flex justify-content-end col-12 col-md-6 px-3 py-3">
+                                <h3>{{ service.name }}</h3>
+                                <p class="service-description">{{ service.description }}</p>
+                                <p class="mb-0">Price: <strong>{{ service.price }} $</strong></p>
+                                <p>{{ service.pricing_description }}</p>
+                                <a href="{% url 'service_request' service.id %}" class="service-contact-button text-end">
                                 <button class="btn btn-black rounded-0 p-2">
-                                    Contact
+                                Contact
                                 </button>
-                            </a>
+                                </a>
+                            </div>
                         </div>
-                        {% if request.user.is_superuser %}
-                        <div class="row d-inline">
-                            <a href="{% url 'delete_service' service.id %}" class="text-small text-danger">Delete</a>
-                            <a href="{% url 'edit_service' service.id %}" class="text-small text-success">Edit</a>
-                        </div>
-                        {% endif %}
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
     </div>
-</div>
-
-<div class="row justify-content-center mb-5">
-    {% for testamonial in testamonials %}
-    <div class="col-4 d-flex">
-        <div class="col-12">
-            <div class="card card-round">
-                <div class="col-12 d-flex">
-                    <div class="col-6 ms-3 mt-3 mb-1 me-0">
-                        <img src="{{ testamonial.testamonial_image.url }}" class="img-fluid" />
+    <div class="spacer"></div>
+    <div class="row d-flex justify-content-center">
+        <h4 class="text-center">What others say</h4>
+        <div class="col-12 col-md-8 col-lg-6 px-3">
+            <div class="testimonial-wrapper">
+                <div class="border-testimonial-wrapper p-3">
+                    {% for review in testamonials%}
+                    <div class="review-wrapper hidden" id="review-{{ review.id }}">
+                        <h5 class="mb-0">{{ review.persons_name }}</h5>
+                        <p>{{ review.persons_work }}</p>
+                        <p class="text-center review"><span class="quotes">"</span>{{review.testamonial_review}}<span class="quotes">"</span></p>
+                        {% if review.testamonial_rating %}
+                        <p class="text-end">{{ review.testamonial_rating }}</p>
+                        {% endif %} 
                     </div>
-                    <div class="col-4 mt-3">
-                        <h6 class="card-title me-2 ms-0 mb-0">{{ testamonial.persons_name }}</h6>
-                        <h6 class="card-title">{{ testamonial.persons_work }}</h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <p class="card-text ms-2 mb-2 me-2">
-                            <span class="quote">"</span>
-                            <small>{{ testamonial.testamonial_review }}</small>
-                            <span class="quote">"</span>
-                        </p>
-                        {% if testamonial.testamonial_rating %}
-                        <p class="text-center">{{ testamonial.testamonial_rating }} <i class="far fa-thumbs-up"></i></p>
-                        {% endif %}
+                    {% endfor %}
+                    <div class="testimonial-image-wrapper d-flex justify-content-evenly">
+                        {% for testamonial in testamonials %}
+                        <img src="{{ testamonial.testamonial_image.url }}" id="image-{{ testamonial.id }}" class="testimonial-image" alt="Profile image of {{ testamonial.persons_name }}">
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    {% endfor %}
 </div>
 
+<script>
+    $('#1').addClass('active')
+    $('#review-1').removeClass('hidden')
+     
+    $('.testimonial-image').click(function (e) {
+        if (e.target.id == 'image-1') {
+            setTimeout(() => {
+                $('#review-1').slideToggle('hiden')
+            }, 150)
+            $('#review-2').fadeOut(100)
+            $('#review-3').fadeOut(100)
+            $('#review-4').fadeOut(100)
+        } else if (e.target.id == 'image-2') {
+            setTimeout(() => {
+                $('#review-2').slideToggle('hiden')
+            }, 150)
+            $('#review-1').fadeOut(100)
+            $('#review-3').fadeOut(100)
+            $('#review-4').fadeOut(100)
+        } else if (e.target.id == 'image-3') {
+            setTimeout(() => {
+                $('#review-3').slideToggle('hiden')
+            }, 150)
+            $('#review-1').fadeOut(100)
+            $('#review-2').fadeOut(100)
+            $('#review-4').fadeOut(100)
+        } else {
+            setTimeout(() => {
+                $('#review-4').slideToggle('hiden')
+            }, 150)
+            $('#review-1').fadeOut(100)
+            $('#review-2').fadeOut(100)
+            $('#review-3').fadeOut(100)
 
+        }
+    })
+</script>
 {% endblock %}
