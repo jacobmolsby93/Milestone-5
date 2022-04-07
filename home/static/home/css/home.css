@@ -6,10 +6,6 @@ i.red{
     padding-bottom:75px;
 }
 
-.underline {
-    width: 150px;
-    border-bottom: 1px solid black;
-}
 
 /* img gallery */
 
@@ -23,22 +19,26 @@ i.red{
     position: relative;
 }
 
+@media screen and (max-width: 992px) {
+    #gallery {
+        column-count: 2;
+    }
+    .shop-now-button {
+        background: black;
+        color: white;
+        width: 100px;
+        position: absolute;
+        top: 20px !important;
+        left: 20px !important;
+        padding: 0;
+    }
+}
+
 #gallery > img {
     width: 100%;
 }
 
-/* mobile image carousel */
-/* 
-{{ MEDIA_URL }}black-and-white-image-of-girl.jpg
-{{ MEDIA_URL }}colorful-image-of-girl.jpg
-{{ MEDIA_URL }}crackling-photo-of-skater.jpg
-{{ MEDIA_URL }}green-tinted-image-of-car.jpg
-{{ MEDIA_URL }}colorful-beach-image-hammock.jpg
-{{ MEDIA_URL }}yellow-grain-effect-statue.jpg
-{{ MEDIA_URL }}purple-image-of-girl-smiling.jpg
-{{ MEDIA_URL }}yellow-cracked-photo-of-girl.jpg 
 
-*/
 .image-1 {
     background: url('/media/black-and-white-image-of-girl.jpg') no-repeat center center;
     background-size: cover;
@@ -56,11 +56,4 @@ i.red{
     top: 60.2%;
     left: 46%;
     padding: 0;
-}
-
-@media (max-width: 600px) {
-    .shop-now-button {
-        position: relative;
-        padding: 0;
-    }
 }

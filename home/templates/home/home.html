@@ -19,65 +19,21 @@
 </div>
 
 <!-- Desktop landing -- Page -->
-<div class="container-fluid d-none d-md-block" >
+<div class="container-fluid">
     <div class="row">
-            <div id="gallery">
-                <img src="{{ MEDIA_URL }}colorful-image-of-girl.jpg" alt="colorful image of a girl">
-                <img src="{{ MEDIA_URL }}crackling-photo-of-skater.jpg" alt="Photo of guy who skates">
-                <img src="{{ MEDIA_URL }}green-tinted-image-of-car.jpg" alt="Green tinted image of a car">
-                <img src="{{ MEDIA_URL }}black-and-white-image-of-girl.jpg" alt="Black and white image of girl">
-                <img src="{{ MEDIA_URL }}colorful-beach-image-hammock.jpg" alt="colorful beach image hammock">
-                <img src="{{ MEDIA_URL }}watercolor-textures-three-types.jpg" alt="watercolor textures three types">
-                <img src="{{ MEDIA_URL }}yellow-grain-effect-statue.jpg" alt="yellow grain effect">
-                <img src="{{ MEDIA_URL }}purple-image-of-girl-smiling.jpg" alt="Purple image of girl smiling">
-                <img src="{{ MEDIA_URL }}yellow-cracked-photo-of-girl.jpg" alt="Yellow cracked photo of a girl">
-            </div>
-            <div>
-                <h4 class="my-5">
-                    <a class="shop-now-button btn btn-md rounded-0 text-uppercase py-2" href="{% url 'styles' %}">SHOP
-                        NOW</a>
-                </h4>
-            </div>
-        </div>
-</div>
-<div class="container-fluid d-flex d-md-none mb-3">
-    <div class="row">
-        <div id="mobilePortfolio" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="mobile-carousel-image col-10">
-                  <img src="#" class="image-1 d-block w-100">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="mobile-carousel-image image-2 col-10"></div>
-              </div>
-              <div class="carousel-item">
-                <div class="mobile-carousel-image image-3 col-10"></div>
-              </div>
-              <div class="carousel-item">
-                <div class="mobile-carousel-image image-4 col-10"></div>
-              </div>
-              <div class="carousel-item">
-                <div class="mobile-carousel-image image-5 col-10"></div>
-              </div>
-              <div class="carousel-item">
-                <div class="mobile-carousel-image image-6 col-10"></div>
-              </div>
-              <div class="carousel-item">
-                <div class="mobile-carousel-image image-7 col-10"></div>
-              </div>
-              <div class="carousel-item">
-                <div class="mobile-carousel-image image-8 col-10"></div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#mobilePortfolio" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#mobilePortfolio" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </button>
-          </div>
-    </div>
+        <div id="gallery">
+            <img src="{{ MEDIA_URL }}colorful-image-of-girl.jpg" alt="colorful image of a girl">
+            <img src="{{ MEDIA_URL }}crackling-photo-of-skater.jpg" alt="Photo of guy who skates">
+            <img src="{{ MEDIA_URL }}green-tinted-image-of-car.jpg" alt="Green tinted image of a car">
+            <img src="{{ MEDIA_URL }}black-and-white-image-of-girl.jpg" alt="Black and white image of girl">
+            <img src="{{ MEDIA_URL }}colorful-beach-image-hammock.jpg" alt="colorful beach image hammock">
+            <img src="{{ MEDIA_URL }}watercolor-textures-three-types.jpg" alt="watercolor textures three types">
+            <img src="{{ MEDIA_URL }}yellow-grain-effect-statue.jpg" alt="yellow grain effect">
+            <img src="{{ MEDIA_URL }}purple-image-of-girl-smiling.jpg" alt="Purple image of girl smiling">
+            <img src="{{ MEDIA_URL }}yellow-cracked-photo-of-girl.jpg" alt="Yellow cracked photo of a girl">
+        <a class="shop-now-button btn btn-md rounded-0 text-uppercase py-2" href="{% url 'styles' %}">SHOP
+            NOW</a>
+      </div>
+  </div>
 </div>
 {% endblock %}
