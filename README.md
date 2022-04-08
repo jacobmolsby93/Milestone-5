@@ -65,33 +65,55 @@ The styles section of the page is an easy way for the owner to publish the desig
 
 ## Testing 
 
-Fixed message container, on small devices. was too wide for small devices.
+USER TESTING 
+<br>
+User Create Testing
+<br>
+Testing that new users that arrive on the page have been completed in several ways, implementing a standard testing procedure that ensures users can signup to the page.
+No error where found my the newly created user goes to the user profile page. Ensures that the post_save method on user creation has been successful.
 
-fixed add to bag buttons on all screen sizes
+User Profile Testing
+<br>
+The user can add and update information on the user profile page. the post success returns success every time. New and updated information will overwrite previously added information.
 
-fixed about me img link, had accidentally put a trailing comma 
+User Profile Order History
+<br>
+If the user has made an order the user will see their previous orders on the order history page of the website. The order corresponds with the correct user and order history. Confirmed with the email confirmation sent when an order is placed.
 
-fixing the navigation bar for mobile devices and getting the dropdown menus to work as I wanted.
-Took some work to make the finished product look like it does.
+User Make Order Testing
+<br>
+The user can successfully make an order on any of the styles that are posted by the store owner. When a payment has been completed the order is marked with the status code of 200 on stripe and an order confirmation email is sent. The order as stated above is shown on the user profile page if the user that made the order has made an account.
 
-The hamburger menu icon on mobile screens. I could not get the background color of the drop-down menu to the one I wanted.
-but fixed it by trying it out on the inspect page.
+User Signup Newsletter
+<br>
+Anyone can signup for the newsletter, you don't have to be authenticated to do so. The service used is Mailchimp. A welcome email is sent to newly registered newsletter contacts.
+This has been tested with my email and the process turns out successful every time.
 
-On the style detail page, when going from large screens to smaller screens I had issues with the margins and the two columns aligning up when stacked on top of each other.
+User Send Email Test
+<br>
+The user can choose to send an email through one of the many contact forms on the page. Either through the service request forms or the normal contact form. The email is received by me every time and a successful post is shown in the terminal. This has been tested through multiple browsers and emails.
 
-Had complications when trying to save the user information to the actual profile. Had to go through the code several times before realizing I had forgotten to implement a part of the code.
+User Request Service Test<br>
+The user can pick one of the 4 services that the page provides, Each service has a separate contact form making each form a unique subject. For the owner, this is more convenient. This has been tested by sending multiple emails through the services and verifying that the subjects do change on different service requests.
 
-All the images of the page when uploaded to amazon aws generated a new name for themselves in the deployed project so the images could not be found.
-I solved this firstly by importing all the pictures again on the deployed page, through the admin panel.
-The images that hardcoded into the site I found the solution was to put {{ MEDIA_URL }}imng.png, which I didn't do in any of the places.
+ADMIN TESTING <br>
+Admin Add Service Testing<br>
+The admin of the page can add new services. This has been tested by adding new services and seeing that everything is working. The service image works to upload every time and the data is correct when uploading. Each new service gets its request form as assigned in the models.
 
+Admin Edit Service Testing<br>
+The admin can choose to edit existing forms by being signed in. Simply by pressing edit when the user is a superuser. This has been tested by editing the information on each of the services that are provided multiple times.
 
-Had a lot of issues with the emailing of the page. It was my Gmail account which I connected that didn't work for some reason.
-I troubleshot this over and over again for several hours until I came to this conclusion.
+Admin Delete Service Testing<br>
+The delete view is working on the different services, it is the same as the editing service. A link will only show when the user is a superuser. When delete is pressed the service is deleted from the database, and no longer shown on the page.
 
-The webhook handler I have used is from the boutique ado walkthrough, with some small modifications. but implementing it into my project
-required troubleshooting of the handler as well as the actual webhook. I got it to work after finally I realized that my workspace had to
-be public before the webhook handler could connect to the actual page.
+Admin Add Style Testing<br>
+The admin can as well as additional services, add new styles to the page, similar to the way above. when the user is a superuser the user has the option to see service management and style management. where you are redirected to a form to add new styles. This is done by manually entering information such as name price and description.
+
+Admin Edit Style Testing<br>
+Similar to the editing service, editing a style has the same principle. Has been tested editing the different styles on the page. Updating the information is successfully every time, the new information that is entered shows up in the correct style.
+
+Admin Delete Style Testing<br>
+Deleting a style is similar to editing, A button right next to edit style is only shown if the user is a superuser. With a press, the admin can delete the style. This has been tested many times by adding new styles with random data to den delete the style just added.
 
 
 ### Validator Testing 
@@ -161,6 +183,37 @@ To deploy the site to Heroku these are the steps that you have to take for the d
  
 ### Media
 
+#### Wireframes
+A complete view of the wireframes used to complete the project from a front-end perspective.
+- Landing Page 
+<br>
+
+  [![image](https://www.linkpicture.com/q/portfolio-home-page.png)](https://www.linkpicture.com/view.php?img=LPic62501cb8500a7496651114)
+
+- About me page
+<br>
+
+  [![image](https://www.linkpicture.com/q/about-me-page.png)](https://www.linkpicture.com/view.php?img=LPic62501c622c1ef732493847)
+
+- Contact Page
+<br>
+
+  [![image](https://www.linkpicture.com/q/contact-page.png)](https://www.linkpicture.com/view.php?img=LPic62501d2ec92ae934128890)
+
+- Service Page
+<br>
+
+  [![image](https://www.linkpicture.com/q/services-page.png)](https://www.linkpicture.com/view.php?img=LPic62501db00c2df556366973)
+
+- Style Page
+<br>
+  
+  [![image](https://www.linkpicture.com/q/shop-styles-page.png)](https://www.linkpicture.com/view.php?img=LPic62501de37c9f61365817146)
+
+Note:
+<br>
+  Some Changes have been made to the actual page due to better cross device functionality.
+
 #### Styles
 All Graphic design images are taken from the page - https://stock.adobe.com/.
 
@@ -168,6 +221,8 @@ All Graphic design images are taken from the page - https://stock.adobe.com/.
 About me image is taken from pexels - https://www.pexels.com/sv-se/foto/svartvitt-mode-man-person-1040880/
 
 #### Services 
+<br>
+The user can choose to send an email through one of the many contact forms on the page. Either through the service request forms or the normal contact form. The email is received by me every time and a successfu
 Testimonial image yellow background from pexels - https://www.pexels.com/sv-se/foto/kvinna-ogon-modell-ansikte-415829/
 Testimonial image girl jeans jacket from pexels - https://www.pexels.com/sv-se/foto/mode-kvinna-ung-tittar-1130626/
 Testimonial image guy blue t-shirt from pexels - https://www.pexels.com/sv-se/foto/man-person-ansikte-staende-2379004/

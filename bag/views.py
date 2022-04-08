@@ -12,7 +12,7 @@ from styles.models import ShopStyles
 
 
 def view_bag(request):
-    """
+    """from styles.models import ShopStyles
     A view to show the contents of the shopping bag
     """
 
