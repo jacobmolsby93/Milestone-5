@@ -129,7 +129,6 @@ Deleting a style is similar to editing, A button right next to edit style is onl
   - But some warnings, but the CSS code has been altered to pass through the test
 
 ### Unfixed Bugs
-- There is one bug when sliding between screen sizes which I have tried to fix 
 
 ## Deployment
 
