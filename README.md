@@ -6,42 +6,46 @@ The styles section of the page is an easy way for the owner to publish the desig
 
 [Deployed Site](https://milestone-5-creator.herokuapp.com/)
 
-![Landing Page Gallery](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/landing-page-gallery.png)
+[![landing-page.png](https://i.postimg.cc/SxSTXRhQ/landing-page.png)](https://postimg.cc/MvLbNWHg)
 
 ## Features 
 
 #### Landing Page / Home Page
 - In the section of the page, I have created a gallery for the user of the page to be drawn in by the design. With an obvious call to action button in the middle of the page.
     - ### Main Navigation
-    - ![Navbar](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/navbar.png)
+    - [![navbar.png](https://i.postimg.cc/V6hQgMzF/navbar.png)](https://postimg.cc/Fd0BsYdf)
     
     - #### Footer
-    - ![Footer](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/footer.png)
+    - [![image](https://www.linkpicture.com/q/footer_1.png)](https://www.linkpicture.com/view.php?img=LPic6250269b4bc7e1047339647)
 
 #### About Page
 - Here I've made a simple about me section, where the user of the page can read about who the owner is am and what kind of work the owner loves to do.
-- ![About me](https://github.com/jacobmolsby93/Milestone-5/blob/a9e19084af148b3da539fcaaf35047368f182411/media/About%20me%20page.png)
+- [![about.png](https://i.postimg.cc/XvwkQ031/about.png)](https://postimg.cc/gw2h2Qx3)
 
 #### Contact 
 - A simple form for the user to send an email to the owner of the page.
-- ![Contact form](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/contact-form.png)
+- [![image](https://www.linkpicture.com/q/contact-form.png)](https://www.linkpicture.com/view.php?img=LPic62502673c0f8c122226016)
 
 #### Services
 - In the area of the page, the user can browse between the different services which the owner has to offer. As well as see a fixed price for the services provided.
 - Below the services page there are testimonials from the previous work that the owner has done.
-- ![Services](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/services.png)
-- ![Testamonials](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/services-testamonials.png)
-
+- [![services.png](https://i.postimg.cc/h47Pw4NG/services.png)](https://postimg.cc/Hjdg8mYG)
+- [![testimonials.png](https://i.postimg.cc/xjHn5xbJ/testimonials.png)](https://postimg.cc/PNtgrMyT)
 =======
 #### Styles
 - Here the owner can easily upload finished styles to the page. The user of the page can have a look and make a purchase easily with the help of stripe checkout.
 - By uploading the owner of the site can navigate to the navigation bar of the page where they will find the button my profile. When pressed there is a dropdown menu with the option to either add a new style or where the owner can add a new service to the page.
-- ![Styles](https://github.com/jacobmolsby93/Milestone-5/blob/3fec33b72ec7b106cc94d34ff092a7febe800923/media/styles.png)
+- [![syles.png](https://i.postimg.cc/rFQbNxgR/syles.png)](https://postimg.cc/PPv2tLgd)
 
 #### Shopping bag
 - After the user has browsed around in the style section, and selected something that they want to buy. They can then go to the shopping bag the see what items have been selected.
 - In the shopping bag the user has the option of deleting products that have been selected.
+[![shopping-bag.png](https://i.postimg.cc/44zRVYrp/shopping-bag.png)](https://postimg.cc/fkTPhRWb)
 
+#### Checkout / Payment
+- Here the user will have an overview of the items in the bag. Below the overview a form for the actual payment is provided.
+[![image](https://www.linkpicture.com/q/checkout.png)](https://www.linkpicture.com/view.php?img=LPic625026016251a1009555617)
+[![image](https://www.linkpicture.com/q/checkout-payment.png)](https://www.linkpicture.com/view.php?img=LPic6250265e0717c263972470)
 
 #### My profile
 - In this area of the page, the user can see what they have ordered. As well as update the profile information of the user.
@@ -232,3 +236,7 @@ Testimonial image girl black t-shirt from pexels - https://www.pexels.com/sv-se/
 
 I have lost the documentation where I have written down the links. Been trying to find from where I downloaded them.
 Can't find it. I know it's from pexels and from adobe, but I can't find the links.
+
+#### Agile Tools
+
+A link to the agile tool I have used during the development of this project. [Trello - Milestone5](https://trello.com/invite/b/o62444I2/a933ac02a2d5a85f2a29fcf6b91cef3c/milestone5)
