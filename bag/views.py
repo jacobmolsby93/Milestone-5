@@ -10,6 +10,7 @@ from styles.models import ShopStyles
 
 # Create your views here.
 
+
 def view_bag(request):
     """
     A view to show the contents of the shopping bag
