@@ -406,6 +406,23 @@ a {
   font: 14px Helvetica, Arial, sans-serif;
 }
 
+#mc-embedded-subscribe {
+  clear: both;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  margin: 0 !important;
+}
+
+#mc_embed_signup #mce-success-response {
+  color: #529214;
+  display: none;
+  position: absolute;
+  left: 0;
+}
+
 /* -------------------------------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
