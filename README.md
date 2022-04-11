@@ -186,7 +186,7 @@ To deploy the site to Heroku these are the steps that you have to take for the d
  
 ### Media
 
-#### Wireframes
+#### __Wireframes__
 A complete view of the wireframes used to complete the project from a front-end perspective.
 - Landing Page 
 <br>
@@ -217,13 +217,16 @@ Note:
 <br>
   Some Changes have been made to the actual page due to better cross device functionality.
 
-#### Styles
+#### __Database Schema__
+  [![database-schema5.png](https://i.postimg.cc/QNnbFzFL/database-schema5.png)](https://postimg.cc/t7WPf2dD)
+
+#### __Styles__
 All Graphic design images are taken from the page - https://stock.adobe.com/.
 
-#### About me page
+#### __About me page__
 About me image is taken from pexels - https://www.pexels.com/sv-se/foto/svartvitt-mode-man-person-1040880/
 
-#### Services 
+#### __Services__
 <br>
 The user can choose to send an email through one of the many contact forms on the page. Either through the service request forms or the normal contact form. The email is received by me every time and a successfu
 Testimonial image yellow background from pexels - https://www.pexels.com/sv-se/foto/kvinna-ogon-modell-ansikte-415829/
@@ -231,11 +234,53 @@ Testimonial image girl jeans jacket from pexels - https://www.pexels.com/sv-se/f
 Testimonial image guy blue t-shirt from pexels - https://www.pexels.com/sv-se/foto/man-person-ansikte-staende-2379004/
 Testimonial image girl black t-shirt from pexels - https://www.pexels.com/sv-se/foto/mode-person-hander-kvinna-1024311/
 
-#### Gallery images.
+#### __Gallery images__
 
 I have lost the documentation where I have written down the links. Been trying to find from where I downloaded them.
 Can't find it. I know it's from pexels and from adobe, but I can't find the links.
 
-#### Agile Tools
+#### __Agile Tools__
 
 A link to the agile tool I have used during the development of this project. [Trello - Milestone5](https://trello.com/invite/b/o62444I2/a933ac02a2d5a85f2a29fcf6b91cef3c/milestone5)
+
+#### __Marketing Plan__
+
+Marketing Plan Creatorstudio Inc 
+
+ 
+
+The approach I am taking to make this company reach leads is to generate organic customers through posting consistently on the pages created on Instagram, as well as Facebook. 
+
+  
+
+Making clients neutrally see my work through the social media platforms, If they wish there are content and newsletter signups on the website where ads can be used to influence the audience in making purchases. 
+
+The weekly newsletter would be updated, and links and calls to action should be added. The design of the newsletter should be updated accordingly. 
+
+With this approach, the more posts that are posted on Instagram and Facebook will generate future leads to the website once a following has been established. 
+
+If capital was not an issue google ad sense, along with the previous would be a great way to bring in more leads. But as this costs a lot of money. It's not an ideal way to start. 
+
+As the following of the 2 social media platforms grow, a youtube channel should be created to make the content more visually engaging. By putting a face to the brand, clients would feel more at ease before making the first purchase. But as this is a graphic design studio, the true product is the work that is created by the owner. 
+
+Making the artwork as good as possible is a sure way to bring in more clients.  
+
+So as a recap of the marketing plan. 
+
+Steps in order. 
+
+Push Instagram & Facebook - Through posts and actively commenting and engaging with other similar content creators. 
+
+Paying for Ads on the platforms to reach a wider demographic. 
+
+Making the business a google business to use the ad sense of Google. 
+
+Growing an organing following by putting a face to the brand. 
+
+Starting a youtube channel where the work process is documented and shared with the followers. 
+
+Making collaborations with similar content creators to reach a 		wider audience.                  
+
+Using the follower base to market the work created. 
+
+By following these steps consistently a strong following base would be acquired, Organic customers would come to the page just to be the curiosity of the followers and work posted. 
