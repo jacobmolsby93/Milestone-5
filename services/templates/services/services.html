@@ -24,15 +24,14 @@
     <div class="carousel-wrapper">
         <div id="serviceCarousel" class="carousel slide position-relaitve" data-bs-ride="carousel" data-bs-interval="false">
             <div class="carousel-indicators">
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">Landing Page</button>
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="1" aria-label="Slide 2">Business Card</button>
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="2" aria-label="Slide 3">Flyer Design</button>
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="3" aria-label="Slide 4">Custom Logo</button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" id="buttonOne"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="1" aria-label="Slide 2" id="buttonTwo"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="2" aria-label="Slide 3" id="buttonThree"></button>
+                <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="3" aria-label="Slide 4" id="buttonFour"></button>
             </div>
-            
             <div class="carousel-inner">
                 {% for service in services %}
-                    <div class="carousel-item" id="{{ service.id }}">
+                    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}" id="{{ service.id }}">
                         <div class="row">
                             <div class="service-img-wrapper col-12 col-md-6">
                                 {% if service.service_image %}
@@ -42,15 +41,17 @@
                                 {% endif %}
                             </div>
                             <div class="service-text-wrapper d-flex justify-content-end col-12 col-md-6 px-3 py-3">
-                                <h3>{{ service.name }}</h3>
+                                <h3 id="name-{{ service.id }}">{{ service.name }}</h3>
                                 <p class="service-description">{{ service.description }}</p>
                                 <p class="mb-0">Price: <strong>{{ service.price }} $</strong></p>
                                 <p>{{ service.pricing_description }}</p>
-                                <a href="{% url 'service_request' service.id %}" class="service-contact-button text-end">
-                                <button class="btn btn-black rounded-0 p-2">
-                                Contact
-                                </button>
-                                </a>
+                                <div class="contact-btn-wrapper text-end">
+                                    <a href="{% url 'service_request' service.id %}" class="service-contact-button">
+                                        <button class="btn btn-black rounded-0">
+                                            Contact
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -86,7 +87,14 @@
 </div>
 
 <script>
-    $('#1').addClass('active')
+    // Assign service name to carousel buttons
+    $('#buttonOne').text($('#name-1').text())
+    $('#buttonTwo').text($('#name-2').text())
+    $('#buttonThree').text($('#name-3').text())
+    $('#buttonFour').text($('#name-4').text())
+
+
+
     $('#review-1').removeClass('hidden')
      
     $('.testimonial-image').click(function (e) {

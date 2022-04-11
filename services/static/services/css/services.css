@@ -46,14 +46,14 @@
 }
 
 .service-contact-button {
-    z-index: 10;
+    z-index: 10 !important;
 }
 
 .carousel-indicators {
     position: absolute;
     top: 0px;
     right: 20px;
-    z-index: 9;
+    z-index: 1;
     display: flex;
     justify-content: end;
     padding: 0;
@@ -61,6 +61,7 @@
     margin-bottom: 0;
     margin-left: 0 !important;
     list-style: none;
+    height: min-content;
 }
 
 .carousel-indicators [data-bs-target] {
