@@ -24,8 +24,8 @@
     {% if message_full_name %}
     <div class="row d-flex justify-content-center">
         <div class="col-8 text-center request-message py-3 px-3 mb-3">
-            <h2>THANK YOU FOR YOUR ORDER {{ message_full_name }}!</h2>
-            <p>I will get back you as soon as possible wih an order confirmation and invoice!
+            <h2>Thank you for contacting me <strong class="text-uppercase">{{ message_full_name }}</strong>!</h2>
+            <p>I will get back you as soon as possible to discuss the project in more detail!
             </p>
             <button class="home-btn btn btn-lg rounded-0 text-uppercase py-2">
                 <a href="{% url 'services' %}">Services</a>
