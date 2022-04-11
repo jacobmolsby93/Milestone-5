@@ -11,7 +11,16 @@ class StyleForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        ShopStyles.objects.all()
+        placeholders = {
+            'style_image': 'Image',
+            'sku': 'SKU',
+            'style_name': 'Style Name',
+            'style_price': 'Price',
+            'style_description': 'Description',
+            'url_field': 'URL'
+        }
 
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+        for field in self.fields:            
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+

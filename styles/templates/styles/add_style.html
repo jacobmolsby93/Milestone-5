@@ -25,8 +25,8 @@
         <div class="col-12 col-md-7 col-xl-5 d-flex justify-content-center color-container p-sm-4">
             <form action="{% url 'add_style' %}" method="POST" class="color-form w-100" enctype="multipart/form-data">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-2 me-3 ms-3 py-3">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Add Style</legend>
+                <fieldset class="rounded-0 mb-2">
+                    <legend class="fieldset-label small text-black w-auto">Add Style</legend>
                         {{ form | crispy }}
                 </fieldset>
                 <div class="mb-2 me-2 d-flex justify-content-end">
