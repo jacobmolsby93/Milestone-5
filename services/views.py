@@ -27,68 +27,47 @@ def services(request):
     return render(request, 'services/services.html', context)
 
 
+@login_required
 def service_request(request, service_id):
     """
     A view to show a detail view of the product
     """
     request_form = RequestForm()
     service = get_object_or_404(Services, id=service_id)
-    if request.user.is_authenticated:
-        # Do something for authenticated users.
-        profile = get_object_or_404(UserProfile, user=request.user)
-        if request.method == 'POST':
-            request_form = RequestForm(request.POST, instance=profile)
-            message_full_name = request.POST['full_name']
-            if request_form.is_valid():
-                request_form.save()
-                subject = "Design Idea"
-                request_form = {
-                    'full_name': request_form.cleaned_data['full_name'],
-                    'email': request_form.cleaned_data['email'],
-                    'phone_number': request_form.cleaned_data['phone_number'],
-                    'ideas': request_form.cleaned_data['ideas']
-                }
-                message = "\n".join(request_form.values())
-                request_form = RequestForm(instance=profile)
-                try:
-                    send_mail(subject, message, request.POST.get('email'), [settings.DEFAULT_FROM_EMAIL])
-                except BadHeaderError:
-                    return HttpResponse('Invalid header found.')
+    profile = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        request_form = RequestForm(request.POST, instance=profile)
+        message_full_name = request.POST['full_name']
+        if request_form.is_valid():
+            request_form.save()
+            subject = "Design Idea"
+            request_form = {
+                'full_name': request_form.cleaned_data['full_name'],
+                'email': request_form.cleaned_data['email'],
+                'phone_number': request_form.cleaned_data['phone_number'],
+                'ideas': request_form.cleaned_data['ideas']
+            }
+            message = "\n".join(request_form.values())
+            request_form = RequestForm(instance=profile)
+            try:
+                send_mail(subject, message, request.POST.get('email'), [settings.DEFAULT_FROM_EMAIL])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
 
-                context = {
-                    'message_full_name': message_full_name,
-                    'service': service,
-                    'request_form': request_form,
-                }
-
-                return render(request, 'services/service_request.html', context)
-    else:
-        if request.method == 'POST':
-            request_form = RequestForm(request.POST)
-            message_full_name = request.POST['full_name']
-            if request_form.is_valid():
-                request_form.save(commit=False)
-                subject = "Design Idea"
-                request_form = {
-                    'full_name': request_form.cleaned_data['full_name'],
-                    'email': request_form.cleaned_data['email'],
-                    'phone_number': request_form.cleaned_data['phone_number'],
-                    'ideas': request_form.cleaned_data['ideas']
-                }
-                message = "\n".join(request_form.values())
-                request_form = RequestForm()
-                try:
-                    send_mail(subject, message, request.POST.get('email'), [settings.DEFAULT_FROM_EMAIL])
-                except BadHeaderError:
-                    return HttpResponse('Invalid header found.')
-
-                context = {
-                    'message_full_name': message_full_name,
-                    'service': service,
-                    'request_form': request_form,
-                }
+            context = {
+                'message_full_name': message_full_name,
+                'service': service,
+                'request_form': request_form,
+            }
 
             return render(request, 'services/service_request.html', context)
+    else:
+        context = {
+            'service': service,
+            'request_form': request_form,
+        }
+
+        return render(request, 'services/service_request.html', context)
 
 
 @login_required
