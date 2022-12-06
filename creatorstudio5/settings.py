@@ -28,7 +28,13 @@ DEBUG = "DEVELOPMENT" in os.environ
 
 # 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['milestone-5-creator.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['https://createrstudio5.onrender.com', 'localhost']
+
+
+# Add Render.com URL to allowed hosts
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
